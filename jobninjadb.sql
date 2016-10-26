@@ -36,10 +36,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `company` ;
 
 CREATE TABLE IF NOT EXISTS `company` (
-  `idcompany` INT NOT NULL AUTO_INCREMENT,
+  `companyid` INT NOT NULL AUTO_INCREMENT,
   `companyname` VARCHAR(45) NOT NULL,
   `companyuserid` INT NOT NULL,
-  PRIMARY KEY (`idcompany`),
+  PRIMARY KEY (`companyid`),
   INDEX `fkusercompany_idx` (`companyuserid` ASC),
   CONSTRAINT `fkusercompany`
     FOREIGN KEY (`companyuserid`)
@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS `words` ;
 
 CREATE TABLE IF NOT EXISTS `words` (
   `wordid` INT NOT NULL AUTO_INCREMENT,
-  `word` VARCHAR(100) NOT NULL,
+  `value` VARCHAR(100) NOT NULL,
   `worduserid` INT NULL,
   `wordcompanyid` INT NULL,
   PRIMARY KEY (`wordid`),
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `words` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fkcompanyword`
     FOREIGN KEY (`wordcompanyid`)
-    REFERENCES `company` (`idcompany`)
+    REFERENCES `company` (`companyid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -97,7 +97,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobninjadb`;
-INSERT INTO `company` (`idcompany`, `companyname`, `companyuserid`) VALUES (1, 'Skill Distillery', 1);
+INSERT INTO `company` (`companyid`, `companyname`, `companyuserid`) VALUES (1, 'Skill Distillery', 1);
 
 COMMIT;
 
@@ -107,7 +107,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobninjadb`;
-INSERT INTO `words` (`wordid`, `word`, `worduserid`, `wordcompanyid`) VALUES (1, 'helpful', 1, NULL);
+INSERT INTO `words` (`wordid`, `value`, `worduserid`, `wordcompanyid`) VALUES (1, 'helpful', 1, NULL);
 
 COMMIT;
 
