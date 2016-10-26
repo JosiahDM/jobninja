@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.User;
+import entities.Word;
 
 @Transactional
 public class UserDAO {
@@ -22,6 +23,11 @@ public class UserDAO {
 	public List<User> index() {
 		String query = "Select u from User u";
 		return em.createQuery(query, User.class).getResultList();
+	}
+	
+	public List<Word> indexWords(int userId){
+		String query = "Select w from Word w where w.user.id = '" + userId + "'";
+		return em.createQuery(query, Word.class).getResultList();
 	}
 
 	public void update(int id, User user) {

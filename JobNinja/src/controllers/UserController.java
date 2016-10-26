@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.UserDAO;
 import entities.User;
+import entities.Word;
 
 @RestController
 public class UserController {
@@ -28,6 +29,10 @@ public class UserController {
 	@RequestMapping(path = "users/", method = RequestMethod.GET)
 	public List<User> index() {
 		return userDAO.index();
+	}
+	@RequestMapping(path = "user/{id}/", method = RequestMethod.GET)
+	public List<Word> indexWords(@PathVariable int id) {
+		return userDAO.indexWords(id);
 	}
 	
 	@RequestMapping(path = "user/{id}/", method = RequestMethod.PUT)
