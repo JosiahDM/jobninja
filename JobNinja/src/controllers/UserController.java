@@ -43,7 +43,6 @@ public class UserController {
 
 		try {
 			updateUser = mapper.readValue(userJSON, User.class);
-			System.out.println(updateUser);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
