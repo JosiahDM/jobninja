@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.User;
-import exeptions.InvalidPasswordException;
 
 @Transactional
 public class UserDAO {
@@ -68,7 +67,7 @@ public class UserDAO {
 			if (encoder.matches(rawPassword, encodedPassword)) {
 				return user;
 			} else {
-				throw new InvalidPasswordException();
+				user = null;
 			}
 		}
 		return user;
