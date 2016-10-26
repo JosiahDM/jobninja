@@ -16,19 +16,19 @@
 
 	<context:component-scan base-package="controllers" />
 <!-- 
-	<bean id="tododao" class="data.TodoDAO" />
-	<bean id="userdao" class="data.UserDAO" /> -->
+	<bean id="tododao" class="data.TodoDAO" /> -->
+	<bean id="userdao" class="data.UserDAO" />
 
-	<!-- <bean id="skgen" class="security.SecretKeyGenerator" /> -->
+	<bean id="skgen" class="security.SecretKeyGenerator" />
 	<!-- Inject JsonWebTokenGenerator Bean (Now do this) -->
-	<!-- <bean id="jsonWebTokenGenerator" class="security.JsonWebTokenGenerator" />
-	bcrypt bean
+	<bean id="jsonWebTokenGenerator" class="security.JsonWebTokenGenerator" />
+	<!--  bcrypt bean -->
 	<bean id="bCryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<bean id="myEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="ngTodoJPA" />
+		<property name="persistenceUnitName" value="JobJPA" />
 	</bean>
 
 	<bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -39,10 +39,10 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/user/*/todos/**" />
+			<mvc:mapping path="/user/*/companies/**" />
 			<bean id="DataSecurityInterceptor" class="security.DataSecurityInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 
 
 </beans>
