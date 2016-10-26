@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -18,10 +18,10 @@ public class User {
 	@Column(name="userid")
 	private int id;
 	
-	@OneToMany
+	@OneToMany(mappedBy="user")
 	private Set<Word> words;
 	
-	@OneToMany
+	@OneToMany(mappedBy="user")
 	private Set<Company> companies;
 	
 	private String username;
