@@ -17,24 +17,31 @@ import entities.Word;
 
 @RestController
 public class UserController {
-	
+
 	@Autowired
 	private UserDAO userDAO;
-	
+
+	// Create User exists in AuthenticationController
+
+	// Get all Users
 	@RequestMapping(path = "users", method = RequestMethod.GET)
 	public List<User> index() {
 		return userDAO.index();
 	}
+
+	// Get a User
 	@RequestMapping(path = "user/{id}", method = RequestMethod.GET)
 	public User show(@PathVariable int id) {
 		return userDAO.show(id);
 	}
-	
-	
+
+	// Get words associated with user
 	@RequestMapping(path = "user/{id}/words", method = RequestMethod.GET)
 	public List<Word> indexWords(@PathVariable int id) {
 		return userDAO.indexWords(id);
 	}
+
+	// Add a Word to a User
 	@RequestMapping(path = "user/{id}/words", method = RequestMethod.POST)
 	public void updateWords(@PathVariable int id, @RequestBody String wordJSON) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -48,7 +55,8 @@ public class UserController {
 		}
 		userDAO.updateWords(id, word);
 	}
-	
+
+	// Update User
 	@RequestMapping(path = "user/{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable int id, @RequestBody String userJSON) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -61,7 +69,9 @@ public class UserController {
 		}
 		userDAO.update(id, updateUser);
 	}
-	
+
+
+	// Delete User
 	@RequestMapping(path = "user/{id}", method = RequestMethod.DELETE)
 	public void destroy(@PathVariable int id) {
 		userDAO.destroy(id);
