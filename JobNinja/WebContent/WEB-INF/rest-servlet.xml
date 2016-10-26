@@ -18,6 +18,7 @@
 	<context:component-scan base-package="controllers" />
 
 	<bean id="userdao" class="data.UserDAO" />
+	<bean id="companydao" class="data.CompanyDAO" />
 
 	<bean id="skgen" class="security.SecretKeyGenerator" />
 	<!-- Inject JsonWebTokenGenerator Bean (Now do this) -->
