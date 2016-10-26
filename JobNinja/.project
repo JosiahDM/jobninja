@@ -3,6 +3,7 @@
 	<name>JobNinja</name>
 	<comment></comment>
 	<projects>
+		<project>JobJPA</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
