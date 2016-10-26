@@ -55,6 +55,11 @@ public class Word {
 	public int getId() {
 		return id;
 	}
+
+	@Override
+	public String toString() {
+		return "Word [id=" + id + ", value=" + value + ", user=" + user + ", company=" + company + "]";
+	}
 	
 	
 	
