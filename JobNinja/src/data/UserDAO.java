@@ -42,6 +42,14 @@ public class UserDAO {
 		em.persist(u);
 		em.flush();
 	}
+	
+	public void updateWords(int userId, Word word) {
+		User updateUser = em.find(User.class, userId);
+		updateUser.addWord(word);
+		em.persist(updateUser);
+		em.persist(word);
+		em.flush();
+	}
 
 	public void destroy(int id) {
 		String query = "Select u from User u where id = '" + id + "'";

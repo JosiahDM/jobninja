@@ -35,6 +35,19 @@ public class UserController {
 	public List<Word> indexWords(@PathVariable int id) {
 		return userDAO.indexWords(id);
 	}
+	@RequestMapping(path = "user/{id}/words", method = RequestMethod.POST)
+	public void updateWords(@PathVariable int id, @RequestBody String wordJSON) {
+		ObjectMapper mapper = new ObjectMapper();
+		Word word = null;
+
+		try {
+			word = mapper.readValue(wordJSON, Word.class);
+			System.out.println(word);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		userDAO.updateWords(id, word);
+	}
 	
 	@RequestMapping(path = "user/{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable int id, @RequestBody String userJSON) {
