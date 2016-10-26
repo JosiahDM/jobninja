@@ -21,21 +21,22 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@RequestMapping(path="/ping", method=RequestMethod.GET)
-	public String ping() {
-		return "Pong";
-	}
-	
-	@RequestMapping(path = "users/", method = RequestMethod.GET)
+	@RequestMapping(path = "users", method = RequestMethod.GET)
 	public List<User> index() {
 		return userDAO.index();
 	}
-	@RequestMapping(path = "user/{id}/", method = RequestMethod.GET)
+	@RequestMapping(path = "user/{id}", method = RequestMethod.GET)
+	public User show(@PathVariable int id) {
+		return userDAO.show(id);
+	}
+	
+	
+	@RequestMapping(path = "user/{id}/words", method = RequestMethod.GET)
 	public List<Word> indexWords(@PathVariable int id) {
 		return userDAO.indexWords(id);
 	}
 	
-	@RequestMapping(path = "user/{id}/", method = RequestMethod.PUT)
+	@RequestMapping(path = "user/{id}", method = RequestMethod.PUT)
 	public void update(@PathVariable int id, @RequestBody String userJSON) {
 		ObjectMapper mapper = new ObjectMapper();
 		User updateUser = null;

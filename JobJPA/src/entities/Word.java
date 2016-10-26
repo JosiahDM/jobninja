@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="words")
 public class Word {
@@ -22,10 +24,12 @@ public class Word {
 	
 	@ManyToOne
 	@JoinColumn(name="worduserid")
+	@JsonBackReference(value="userWords")
 	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="wordcompanyid")
+	@JsonBackReference(value="companyWords")
 	private Company company;
 
 	public String getValue() {

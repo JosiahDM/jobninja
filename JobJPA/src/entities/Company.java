@@ -1,8 +1,10 @@
 package entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -24,10 +27,11 @@ public class Company {
 
 	@ManyToOne
 	@JoinColumn(name="companyuserid")
-//	@JsonBackReference(value="user")
+	@JsonBackReference(value="companies")
 	private User user;
 	
-	@OneToMany(mappedBy="company")
+	@OneToMany(mappedBy="company", fetch=FetchType.EAGER)
+	@JsonManagedReference(value="companyWords")
 	private Set<Word> words;
 
 	public String getCompanyname() {
@@ -64,6 +68,22 @@ public class Company {
 				+ words + "]";
 	}
 	
+	public void addWord(Word word) {
+		if (words == null) {
+			words = new HashSet<>();
+		}
+		if (!words.contains(word)) {
+			words.add(word);
+			word.setCompany(this);
+		}
+	}
+	
+	public void removeWord(Word word) {
+		if (words != null && words.contains(word)) {
+			words.remove(word);
+			word.setCompany(null);
+		}
+	}
 	
 	
 }

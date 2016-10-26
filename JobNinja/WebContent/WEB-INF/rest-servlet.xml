@@ -14,9 +14,9 @@
 
 	<mvc:annotation-driven />
 
+
 	<context:component-scan base-package="controllers" />
-<!-- 
-	<bean id="tododao" class="data.TodoDAO" /> -->
+
 	<bean id="userdao" class="data.UserDAO" />
 
 	<bean id="skgen" class="security.SecretKeyGenerator" />

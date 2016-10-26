@@ -24,6 +24,11 @@ public class UserDAO {
 		String query = "Select u from User u";
 		return em.createQuery(query, User.class).getResultList();
 	}
+	// Get one user by id
+	public User show(int id) {
+		User user = em.find(User.class, id);
+		return user;
+	}
 	
 	public List<Word> indexWords(int userId){
 		String query = "Select w from Word w where w.user.id = '" + userId + "'";
@@ -31,11 +36,10 @@ public class UserDAO {
 	}
 
 	public void update(int id, User user) {
-		String query = "Select u from User u where id = '" + id + "'";
-		User updateUser = em.createQuery(query, User.class).getSingleResult();
-		updateUser.setUsername(user.getUsername());
-		updateUser.setPassword(user.getPassword());
-		em.persist(updateUser);
+		User u = em.find(User.class, id);
+		u.setUsername(user.getUsername());
+		u.setPassword(user.getPassword());
+		em.persist(u);
 		em.flush();
 	}
 
