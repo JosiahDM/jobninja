@@ -15,7 +15,7 @@ public class Company {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idcompany;
+	private int companyid;
 	
 	private String companyname;
 
