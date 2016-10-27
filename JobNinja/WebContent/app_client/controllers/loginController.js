@@ -1,13 +1,22 @@
 var app = angular.module('ninja');
 
 app.controller('loginController', function($scope, authenticationService, $location) {
-	console.log("here");
-	$scope.submit = function(username, password){
+	
+	$scope.login = function(username, password){
 	    authenticationService.login(username, password)
 	    .then(function(response){
-	    	$location.url('/');
+	    	console.log("login");
+	    	$location.path('/');
 	    });
 	  }
 	
-    console.log("login");
+	$scope.logout = function(){
+		console.log("logout");
+		authenticationService.logout();
+		$location.path('/');
+	}
+	
+	$scope.isLoggedIn = function() {
+		return authenticationService.isLoggedIn();
+	}
 });
