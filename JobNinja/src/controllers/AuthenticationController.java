@@ -40,10 +40,15 @@ public class AuthenticationController {
 			ioe.printStackTrace();
 		}
 		user = userDao.create(user);
-		String jwtString = jwtGen.generateUserJwt(user);
-		Map<String, String> responseJson = new HashMap<>();
-		responseJson.put("jwt", jwtString);
-		return responseJson;
+		if (user != null) {
+			String jwtString = jwtGen.generateUserJwt(user);
+			Map<String, String> responseJson = new HashMap<>();
+			responseJson.put("jwt", jwtString);
+			return responseJson;
+		}
+		else {
+			return null;
+		}
 	}
 
 	// Login a User
@@ -63,7 +68,7 @@ public class AuthenticationController {
 			e.printStackTrace();
 			user = null;
 		}
-		
+
 		String jwtString = jwtGen.generateUserJwt(user);
 		Map<String, String> responseJson = new HashMap<>();
 		responseJson.put("jwt", jwtString);

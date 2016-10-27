@@ -3,6 +3,7 @@ package data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +26,16 @@ public class UserDAO {
 		String query = "Select u from User u";
 		return em.createQuery(query, User.class).getResultList();
 	}
+
 	// Get one user by id
 	public User show(int id) {
 		User user = em.find(User.class, id);
 		return user;
 	}
-	
-	public List<Word> indexWords(int userId){
-		String query = "Select w from Word w where w.user.id = '" + userId + "'";
-		return em.createQuery(query, Word.class).getResultList();
+
+	public List<Word> indexWords(int userId) {
+		String query = "Select w from Word w where w.user.id = ?1";
+		return em.createQuery(query, Word.class).setParameter(1, userId).getResultList();
 	}
 
 	public User update(int id, User user) {
@@ -44,7 +46,7 @@ public class UserDAO {
 		em.flush();
 		return u;
 	}
-	
+
 	public User updateWords(int userId, Word word) {
 		User updateUser = em.find(User.class, userId);
 		updateUser.addWord(word);
@@ -53,7 +55,7 @@ public class UserDAO {
 		em.flush();
 		return updateUser;
 	}
-	
+
 	// Add new company to user
 	public Company addCompany(int id, Company company) {
 		User u = em.find(User.class, id);
@@ -64,7 +66,7 @@ public class UserDAO {
 		em.flush();
 		return company;
 	}
-	
+
 	// Delete company from user
 	public void deleteCompany(int id, int cId) {
 		User u = em.find(User.class, id);
@@ -77,20 +79,28 @@ public class UserDAO {
 	}
 
 	public void destroy(int id) {
-		String query = "Select u from User u where id = '" + id + "'";
-		User user = em.createQuery(query, User.class).getSingleResult();
+		String query = "Select u from User u where id = ?1";
+		User user = em.createQuery(query, User.class).setParameter(1, id).getSingleResult();
 		em.remove(user);
 		em.flush();
 	}
 
 	public User create(User newUser) {
-		String rawPassword = newUser.getPassword();
-		String encodedPassword = passwordEncoder.encode(rawPassword);
-		newUser.setPassword(encodedPassword);
 
-		em.persist(newUser);
-		em.flush();
-		return newUser;
+		try {
+			String query = "Select u from User u Where username = ?1";
+			em.createQuery(query, User.class).setParameter(1, newUser.getUsername()).getSingleResult();
+			return null;
+		} catch (NoResultException e) {
+			String rawPassword = newUser.getPassword();
+			String encodedPassword = passwordEncoder.encode(rawPassword);
+			newUser.setPassword(encodedPassword);
+
+			em.persist(newUser);
+			em.flush();
+			return newUser;
+		}
+
 	}
 
 	public User authenticateUser(User checkUser) {
