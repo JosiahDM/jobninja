@@ -6,10 +6,20 @@ app.controller('registrationController', function($scope, registrationService, $
 	    registrationService.createUser(username, password)
 	    .then(function(response){
 	    	if (response.status === 200) {
-	    		console.log(response.data.userId);
+	    		var id = response.data.userId;
 	    		registrationService.createAssessment()
 	    		.then(function(response){
-	    			console.log(response);
+	    			console.log(response.data.id);
+	    			var user = {
+						'id' : id,
+						'username' : username,
+						'password' : password,
+						'testId' : response.data.id
+	    			}
+	    			registrationService.editUser(user)
+	    			.then(function(response){
+	    				console.log(response);
+	    			});
 	    		});
 	    		$location.url('/');
 	    	}

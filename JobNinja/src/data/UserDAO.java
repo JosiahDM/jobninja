@@ -42,6 +42,7 @@ public class UserDAO {
 		User u = em.find(User.class, id);
 		u.setUsername(user.getUsername());
 		u.setPassword(user.getPassword());
+		u.setTestId(user.getTestId());
 		em.persist(u);
 		em.flush();
 		return u;
