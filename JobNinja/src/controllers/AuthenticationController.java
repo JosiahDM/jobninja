@@ -46,6 +46,7 @@ public class AuthenticationController {
 			String jwtString = jwtGen.generateUserJwt(user);
 			Map<String, String> responseJson = new HashMap<>();
 			responseJson.put("jwt", jwtString);
+			responseJson.put("userId", String.valueOf(user.getId()));
 			return responseJson;
 		}
 		else {

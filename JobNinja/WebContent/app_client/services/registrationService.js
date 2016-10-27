@@ -27,6 +27,16 @@ app.factory('registrationService', function($http){
       data : newUser
     });
   }
+  var createAssessment = function(){
+	  return $http({
+	      method : 'POST',
+	      url : 'https://api-sandbox.traitify.com/v1/assessments',
+	      
+	      headers : {
+	    	'Content-Type' : 'application/json'
+	      }
+	    });
+  }
 
   var editUser = function(user) {
     console.log(user);
