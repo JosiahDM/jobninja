@@ -32,6 +32,11 @@ public class User {
 	
 	private String username;
 	private String password;
+	@Column(name="testid")
+	private String testId;
+	@Column(name="tooktest")
+	private boolean tookTest;
+	
 	
 	public String getUsername() {
 		return username;
@@ -61,6 +66,19 @@ public class User {
 	}
 	public void setCompanies(Set<Company> companies) {
 		this.companies = companies;
+	}
+	
+	public String getTestId() {
+		return testId;
+	}
+	public void setTestId(String testId) {
+		this.testId = testId;
+	}
+	public boolean isTookTest() {
+		return tookTest;
+	}
+	public void setTookTest(boolean tookTest) {
+		this.tookTest = tookTest;
 	}
 	
 	@Override

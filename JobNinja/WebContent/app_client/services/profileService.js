@@ -1,39 +1,56 @@
 var app = angular.module('ninja');
 
-app.factory('profileService', function($http) {
+app.factory('profileService', function($http, authenticationService) {
 
     var service = {};
 
-    service.getCompanies = function() {
-        return $http({
-            method : 'GET',
-            url : '/JobNinja/api/user/1'  // HARD CODED USER ID CHANGE LATER
-        });
+    // Get full user object as long as user is logged in
+    service.getUser = function() {
+        var user = authenticationService.currentUser();
+        if (user) {
+            return $http({
+                method : 'GET',
+                url : '/JobNinja/api/user/'+user.id,
+                headers : {
+                    'x-access-token' : authenticationService.getToken()
+                }
+            });
+        } else {
+            return $http({
+                method : 'GET',
+                url : '/JobNinja/api/auth/unauthorized'
+            });
+        }
     };
 
     service.addCompany = function(companyObj) {
-        return $http({
-            method : 'POST',
-            url : '/JobNinja/api/user/1/company', // HARD CODED USER ID
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            data : JSON.stringify(companyObj)
-        });
+        var user = authenticationService.currentUser();
+        if (user) {
+            return $http({
+                method : 'POST',
+                url : '/JobNinja/api/user/'+user.id+'/company',
+                headers : {
+                    'Content-Type' : 'application/json',
+                    'x-access-token' : authenticationService.getToken()
+                },
+                data : JSON.stringify(companyObj)
+            });
+        }
     };
 
     service.deleteCompany = function(companyObj) {
-        return $http({
-            method : 'DELETE',
-            url : '/JobNinja/api/user/1/company/'+companyObj.companyid  // HARD CODED USER ID
-        });
+        var user = authenticationService.currentUser();
+        if (user) {
+            return $http({
+                method : 'DELETE',
+                url : '/JobNinja/api/user/'+user.id+'/company/'+companyObj.companyid,
+                headers : {
+                    'x-access-token' : authenticationService.getToken()
+                }
+            });
+        }
     };
 
     return service;
 
 });
-
-// WHEN AUTHENTICATION IS WORKING
-// headers : {
-//     'x-access-token' : authenticationService.getToken()
-// }

@@ -66,7 +66,7 @@ public class UserController {
 			company = mapper.readValue(companyJSON, Company.class);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}		
 		return userDAO.addCompany(id, company);
 	}
 	

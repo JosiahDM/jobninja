@@ -86,7 +86,7 @@ public class UserDAO {
 	}
 
 	public User create(User newUser) {
-
+		
 		try {
 			String query = "Select u from User u Where username = ?1";
 			em.createQuery(query, User.class).setParameter(1, newUser.getUsername()).getSingleResult();
@@ -95,7 +95,7 @@ public class UserDAO {
 			String rawPassword = newUser.getPassword();
 			String encodedPassword = passwordEncoder.encode(rawPassword);
 			newUser.setPassword(encodedPassword);
-
+			
 			em.persist(newUser);
 			em.flush();
 			return newUser;
