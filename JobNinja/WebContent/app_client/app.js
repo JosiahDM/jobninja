@@ -21,4 +21,8 @@ var app = angular.module('ninja', ['ngRoute'])
                 templateUrl : '/JobNinja/public/views/templates/test.view.html',
                 controller : 'testController'
             })
+            .when('/company',{
+            	templateUrl : '/JobNinja/public/views/templates/company.view.html',
+            	controller : 'testController'
+            })
     });
