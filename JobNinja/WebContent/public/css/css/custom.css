@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    padding-top: 100px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin-top: 100px;/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
     background-size: cover;
 }
@@ -47,13 +47,39 @@ h6{}
 footer {
     margin: 50px 0;
 }
-.navbar {
-	background-color: red;
+.navbar{
+  background-image:  linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+.navbar-header {
   height: 99px;
 }
 .navbar ul{
   color: #ffffff;
-  font-size: 1.5em;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  font-size: 1.25em;
+  padding-top: 20px;
+
+}
+.logo{
+  font-size: 1.75em
+}
+.logo-job{
+  font-family: 'Sigmar One', cursive;
+}
+.logo-ninja{
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 3em;
+}
+.navbar-logo {
+  float: left;
+height: 50px;
+padding: 15px 15px;
+
 }
