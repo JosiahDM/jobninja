@@ -1,8 +1,4 @@
-/*
- * Start Bootstrap - Business Frontpage (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+
 html, body {
   width: 100%;
   min-height: 100%;
@@ -10,7 +6,7 @@ html, body {
 }
 
 body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 100px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
     background-size: cover;
 }
@@ -52,6 +48,12 @@ footer {
     margin: 50px 0;
 }
 .navbar {
-	background-color: white;
-
+	background-color: red;
+  height: 99px;
+}
+.navbar ul{
+  color: #ffffff;
+  font-size: 1.5em;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
