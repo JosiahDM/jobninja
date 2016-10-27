@@ -36,7 +36,7 @@ app.controller('profileController', function($scope, profileService) {
         profileService.addCompany(companyObj)
             .then(function(response) {
                 if (response.status === 200) {
-                    $scope.companies.push(companyObj);
+                    $scope.companies.push(response.data);
                 }
             });
     };

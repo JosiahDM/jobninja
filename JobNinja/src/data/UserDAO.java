@@ -36,30 +36,33 @@ public class UserDAO {
 		return em.createQuery(query, Word.class).getResultList();
 	}
 
-	public void update(int id, User user) {
+	public User update(int id, User user) {
 		User u = em.find(User.class, id);
 		u.setUsername(user.getUsername());
 		u.setPassword(user.getPassword());
 		em.persist(u);
 		em.flush();
+		return u;
 	}
 	
-	public void updateWords(int userId, Word word) {
+	public User updateWords(int userId, Word word) {
 		User updateUser = em.find(User.class, userId);
 		updateUser.addWord(word);
 		em.persist(updateUser);
 		em.persist(word);
 		em.flush();
+		return updateUser;
 	}
 	
 	// Add new company to user
-	public void addCompany(int id, Company company) {
+	public Company addCompany(int id, Company company) {
 		User u = em.find(User.class, id);
 		company.setUser(u);
 		em.persist(company);
 		u.addCompany(company);
 		em.persist(u);
 		em.flush();
+		return company;
 	}
 	
 	// Delete company from user

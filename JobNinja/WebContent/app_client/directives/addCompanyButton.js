@@ -38,12 +38,16 @@ app.directive('addCompanyButton', function($compile, profileService) {
             $scope.save = function(data) {
                 var company = { companyname:data};
                 $scope.addcompany()(company);
+                $scope.data = null;
+                compiledInput.remove();
+                compiledInput = null;
             };
             // Cancel input, remove input area from DOM.
             $scope.cancel = function() {
                 if (compiledInput != null) {
                     compiledInput.remove();
                     compiledInput = null;
+                    $scope.data = null;
                 }
             };
 

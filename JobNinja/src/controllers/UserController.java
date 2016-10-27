@@ -44,7 +44,7 @@ public class UserController {
 
 	// Add a Word to a User
 	@RequestMapping(path = "user/{id}/words", method = RequestMethod.POST)
-	public void updateWords(@PathVariable int id, @RequestBody String wordJSON) {
+	public User updateWords(@PathVariable int id, @RequestBody String wordJSON) {
 		ObjectMapper mapper = new ObjectMapper();
 		Word word = null;
 
@@ -54,12 +54,12 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		userDAO.updateWords(id, word);
+		return userDAO.updateWords(id, word);
 	}
 	
 	// Add a company to a User
 	@RequestMapping(path = "user/{id}/company", method = RequestMethod.POST)
-	public void addCompany(@PathVariable int id, @RequestBody String companyJSON) {
+	public Company addCompany(@PathVariable int id, @RequestBody String companyJSON) {
 		ObjectMapper mapper = new ObjectMapper();
 		Company company = null;
 		try {
@@ -67,18 +67,18 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		userDAO.addCompany(id, company);
+		return userDAO.addCompany(id, company);
 	}
 	
 	// Delete company from user
 	@RequestMapping(path = "user/{id}/company/{cId}", method = RequestMethod.DELETE)
-	public void addCompany(@PathVariable int id, @PathVariable int cId) {
+	public void deleteCompany(@PathVariable int id, @PathVariable int cId) {
 		userDAO.deleteCompany(id, cId);
 	}
 
 	// Update User
 	@RequestMapping(path = "user/{id}", method = RequestMethod.PUT)
-	public void update(@PathVariable int id, @RequestBody String userJSON) {
+	public User update(@PathVariable int id, @RequestBody String userJSON) {
 		ObjectMapper mapper = new ObjectMapper();
 		User updateUser = null;
 
@@ -87,7 +87,7 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		userDAO.update(id, updateUser);
+		return userDAO.update(id, updateUser);
 	}
 
 
