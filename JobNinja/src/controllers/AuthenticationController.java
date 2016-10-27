@@ -29,6 +29,7 @@ public class AuthenticationController {
 	@Autowired
 	UserDAO userDao;
 
+	// Create User
 	@RequestMapping(value = "auth/signup", method = RequestMethod.POST)
 	public Map<String, String> signup(@RequestBody String userJson) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -45,6 +46,7 @@ public class AuthenticationController {
 		return responseJson;
 	}
 
+	// Login a User
 	@RequestMapping(value = "auth/login", method = RequestMethod.POST)
 	public Map<String, String> login(@RequestBody String userJsonLogin) {
 		ObjectMapper mapper = new ObjectMapper();
