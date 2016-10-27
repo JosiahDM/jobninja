@@ -9,6 +9,9 @@ var app = angular.module('ninja', ['ngRoute'])
                 templateUrl : '/JobNinja/public/views/templates/login.view.html',
                 controller : 'loginController'
             })
+            .when('/logout',{
+            	controller : 'loginController'
+            })
             .when('/register',{
                 templateUrl : '/JobNinja/public/views/templates/register.view.html',
                 controller : 'registrationController'
