@@ -26,8 +26,8 @@ public class CompanyDAO {
 	}
 	
 	public List<Word> indexWords(int companyId){
-		String query = "Select w from Word w where w.company.id = '" + companyId + "'";
-		return em.createQuery(query, Word.class).getResultList();
+		String query = "Select w from Word w where w.company.id = ?1";
+		return em.createQuery(query, Word.class).setParameter(1, companyId).getResultList();
 	}
 
 	public void updateName(int companyId, Company company) {
