@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.UserDAO;
+import entities.Company;
 import entities.User;
 import entities.Word;
 
@@ -54,6 +55,25 @@ public class UserController {
 			e.printStackTrace();
 		}
 		userDAO.updateWords(id, word);
+	}
+	
+	// Add a company to a User
+	@RequestMapping(path = "user/{id}/company", method = RequestMethod.POST)
+	public void addCompany(@PathVariable int id, @RequestBody String companyJSON) {
+		ObjectMapper mapper = new ObjectMapper();
+		Company company = null;
+		try {
+			company = mapper.readValue(companyJSON, Company.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		userDAO.addCompany(id, company);
+	}
+	
+	// Delete company from user
+	@RequestMapping(path = "user/{id}/company/{cId}", method = RequestMethod.DELETE)
+	public void addCompany(@PathVariable int id, @PathVariable int cId) {
+		userDAO.deleteCompany(id, cId);
 	}
 
 	// Update User

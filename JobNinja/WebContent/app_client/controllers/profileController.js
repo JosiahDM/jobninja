@@ -19,15 +19,26 @@ app.controller('profileController', function($scope, profileService) {
         console.log("CLICKED " + company.companyname);
 
     };
-    // Remove a company from user's list
-    $scope.remove = function(company) {
-        console.log("REMOVE " + company.companyname);
+    // Delete a company from user's list
+    $scope.deleteCompany = function(companyObj) {
+        profileService.deleteCompany(companyObj)
+            .then(function(response) {
+                if (response.status === 200) {
+                    var loc = $scope.companies.indexOf(companyObj);
+                    $scope.companies.splice(loc, 1);
+                }
+            });
     };
 
     // Button to view an "Add Company" display
-    $scope.addCompany = function(company) {
-        console.log(company);
-        
+    // Currently no data in response.
+    $scope.addCompany = function(companyObj) {
+        profileService.addCompany(companyObj)
+            .then(function(response) {
+                if (response.status === 200) {
+                    $scope.companies.push(companyObj);
+                }
+            });
     };
 
 });

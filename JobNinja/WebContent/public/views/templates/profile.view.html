@@ -4,7 +4,7 @@
 <ul>
     <li ng-repeat="c in companies" data="c">{{c.companyname}}
         <button ng-click="view(c)" >View</button>
-        <button ng-click="remove(c)">Remove</button>
+        <button ng-click="deleteCompany(c)">Remove</button>
     </li>
     <li>
         <button add-company-button addcompany="addCompany">Add Company</button>
@@ -12,4 +12,3 @@
 </ul>
 
 <footer ng-include="'public/partials/footer.html'"></footer>
-

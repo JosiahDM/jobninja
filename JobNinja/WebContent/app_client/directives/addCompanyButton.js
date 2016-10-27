@@ -36,7 +36,7 @@ app.directive('addCompanyButton', function($compile, profileService) {
             // Send company info to controller
             // Calls the method within the addcompany attribute of profile.view.html
             $scope.save = function(data) {
-                var company = { name:data};
+                var company = { companyname:data};
                 $scope.addcompany()(company);
             };
             // Cancel input, remove input area from DOM.

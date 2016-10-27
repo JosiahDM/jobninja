@@ -11,11 +11,23 @@ app.factory('profileService', function($http) {
         });
     };
 
-    service.addCompany = function() {
-        
+    service.addCompany = function(companyObj) {
+        return $http({
+            method : 'POST',
+            url : '/JobNinja/api/user/1/company', // HARD CODED USER ID
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            data : JSON.stringify(companyObj)
+        });
     };
 
-
+    service.deleteCompany = function(companyObj) {
+        return $http({
+            method : 'DELETE',
+            url : '/JobNinja/api/user/1/company/'+companyObj.companyid  // HARD CODED USER ID
+        });
+    };
 
     return service;
 

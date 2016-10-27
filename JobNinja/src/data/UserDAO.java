@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.Company;
 import entities.User;
 import entities.Word;
 
@@ -48,6 +49,27 @@ public class UserDAO {
 		updateUser.addWord(word);
 		em.persist(updateUser);
 		em.persist(word);
+		em.flush();
+	}
+	
+	// Add new company to user
+	public void addCompany(int id, Company company) {
+		User u = em.find(User.class, id);
+		company.setUser(u);
+		em.persist(company);
+		u.addCompany(company);
+		em.persist(u);
+		em.flush();
+	}
+	
+	// Delete company from user
+	public void deleteCompany(int id, int cId) {
+		User u = em.find(User.class, id);
+		Company c = em.find(Company.class, cId);
+		u.removeCompany(c);
+		c.setUser(null);
+		em.remove(c);
+		em.persist(u);
 		em.flush();
 	}
 
