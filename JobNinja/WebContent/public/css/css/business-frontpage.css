@@ -6,7 +6,10 @@
 
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
+
 }
+
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
@@ -20,6 +23,16 @@ body {
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
+h1{
+	color: red;
+}
+h2{
+	color: red;
+}
+h3{}
+h4{}
+h5{}
+h6{}
 
 .tagline {
     text-shadow: 0 0 10px #000;
@@ -32,4 +45,8 @@ body {
 
 footer {
     margin: 50px 0;
+}
+.navbar {
+	background-color: white;
+
 }
