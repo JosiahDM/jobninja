@@ -1,17 +1,19 @@
 var app = angular.module('ninja');
 
-app.controller('profileController', function($scope, profileService) {
+app.controller('profileController', function($scope, $location, profileService) {
 
     $scope.companies = [];
 
     // Get list of companies for user
     $scope.loadData = function() {
-        profileService.getCompanies()
+        profileService.getUser()
             .then(function(response) {
-                console.log(response.data.companies);
                 $scope.companies = response.data.companies;
+            }).catch(function(e) {
+                $location.path('/login');
             });
     };
+
     $scope.loadData();
 
     // Button to bring up company info for viewing/adding more data

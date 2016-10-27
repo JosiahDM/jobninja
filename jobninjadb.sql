@@ -24,6 +24,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userid` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(150) NOT NULL,
+  `tooktest` TINYINT NOT NULL DEFAULT 0,
+  `testid` VARCHAR(300) NULL,
   PRIMARY KEY (`userid`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   UNIQUE INDEX `password_UNIQUE` (`password` ASC))
@@ -87,7 +89,7 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'ninja';
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobninjadb`;
-INSERT INTO `user` (`userid`, `username`, `password`) VALUES (1, 'admin', 'adminpassword');
+INSERT INTO `user` (`userid`, `username`, `password`, `tooktest`, `testid`) VALUES (1, 'admin', 'adminpassword', DEFAULT, NULL);
 
 COMMIT;
 

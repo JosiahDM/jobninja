@@ -14,7 +14,6 @@ app.factory('authenticationService', function($window, $http){
     // Contact the server, authenticate user credentials
     var login = function(username, password) {
         var user = { username : username, password : password};
-        console.log(user);
       return $http({
                 method : 'POST',
                 url : 'api/auth/login',
@@ -56,7 +55,6 @@ app.factory('authenticationService', function($window, $http){
       if (isLoggedIn()) {
         var token = getToken();
         var payload = JSON.parse($window.atob(token.split('.')[1]));
-
         return {
           username : payload.username,
           id : payload.id

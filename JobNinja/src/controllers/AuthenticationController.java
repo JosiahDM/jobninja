@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -74,5 +76,10 @@ public class AuthenticationController {
 		responseJson.put("jwt", jwtString);
 		return responseJson;
 	}
-
+	
+	@RequestMapping(value="auth/unauthorized", method = RequestMethod.GET)
+	public String redirect(HttpServletResponse res) {
+		res.setStatus(403);
+		return "{\"error\":\"Auth Error\"}";
+	}
 }

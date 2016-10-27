@@ -34,7 +34,7 @@ public class DataSecurityInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 
-		res.sendRedirect("http://localhost:8080/api/auth/unauthorized");
+		res.sendRedirect("http://localhost:8080/JobNinja/api/auth/unauthorized");
 		return false;
 	}
 }
