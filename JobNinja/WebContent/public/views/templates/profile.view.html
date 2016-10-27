@@ -1,1 +1,11 @@
 <h1>Profile</h1>
+
+<ul>
+    <li ng-repeat="c in companies" data="c">{{c.companyname}}
+        <button ng-click="view(c)" >View</button>
+        <button ng-click="remove(c)">Remove</button>
+    </li>
+    <li>
+        <button add-company-button addcompany="addCompany">Add Company</button>
+    </li>
+</ul>
