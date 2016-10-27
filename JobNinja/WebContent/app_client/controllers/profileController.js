@@ -19,7 +19,10 @@ app.controller('profileController', function($scope, $location, profileService) 
     // Button to bring up company info for viewing/adding more data
     $scope.view = function(company) {
         console.log("CLICKED " + company.companyname);
-
+        profileService.viewCompany(company)
+            .then( function(response) {
+                $location.path('/company');
+            });
     };
     // Delete a company from user's list
     $scope.deleteCompany = function(companyObj) {

@@ -3,6 +3,7 @@ var app = angular.module('ninja');
 app.factory('profileService', function($http, authenticationService) {
 
     var service = {};
+    var company = {};
 
     // Get full user object as long as user is logged in
     service.getUser = function() {
@@ -50,6 +51,32 @@ app.factory('profileService', function($http, authenticationService) {
             });
         }
     };
+
+    service.viewCompany = function(companyObj) {
+        var user = authenticationService.currentUser();
+        if (user) {
+            return $http({
+                method : 'GET',
+                url : '/JobNinja/api/company/'+companyObj.companyid,
+                headers : {
+                    'x-access-token' : authenticationService.getToken()
+                }
+            })
+            .then(function(response){
+                console.log("IN THEN");
+                console.log(response);
+                company = response.data;
+            });
+        }
+    };
+
+    service.getCompany = function() {
+        return company;
+    }
+
+    service.setCompany = function(companyObj) {
+        company = companyObj;
+    }
 
     return service;
 

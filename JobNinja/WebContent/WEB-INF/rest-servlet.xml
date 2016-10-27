@@ -23,6 +23,7 @@
 	<bean id="skgen" class="security.SecretKeyGenerator" />
 	<!-- Inject JsonWebTokenGenerator Bean (Now do this) -->
 	<bean id="jsonWebTokenGenerator" class="security.JsonWebTokenGenerator" />
+	
 	<!--  bcrypt bean -->
 	<bean id="bCryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
