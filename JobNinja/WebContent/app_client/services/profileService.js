@@ -23,6 +23,29 @@ app.factory('profileService', function($http, authenticationService) {
             });
         }
     };
+    
+    
+    
+    //Get results of test taken for comparison use
+    service.getUserPersonality = function() {
+    	 var testId; 
+    	 return service.getUser()
+    	 .then(function(response) {
+    		 testId = response.data.testId;
+    		 console.log("in response:" + testId);
+    	 })
+    	 .then(function(response){
+    		 console.log("in next then:" + testId);
+    		 return $http({
+    		 	method : 'GET',
+    		 	url : 'https://api-sandbox.traitify.com/v1/assessments/' + testId + '?data=types',
+    		 	headers : {
+    			 	'Authorization': 'Basic v7ippc8rj0hu7tev7pi8tr2iid:x',
+    			 	'Content-Type' : 'application/json'
+    		 	}
+    	 	});
+    	 });
+    }
 
     service.addCompany = function(companyObj) {
         var user = authenticationService.currentUser();

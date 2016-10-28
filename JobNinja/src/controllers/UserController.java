@@ -44,17 +44,15 @@ public class UserController {
 
 	// Add a Word to a User
 	@RequestMapping(path = "user/{id}/words", method = RequestMethod.POST)
-	public User updateWords(@PathVariable int id, @RequestBody String wordJSON) {
-		ObjectMapper mapper = new ObjectMapper();
-		Word word = null;
-
-		try {
-			word = mapper.readValue(wordJSON, Word.class);
+	public void updateWords(@PathVariable int id, @RequestBody String words) {
+		System.out.println(words);
+		
+		String[] wordsArray = words.split(", ");
+		
+		for (String word : wordsArray) {
 			System.out.println(word);
-		} catch (Exception e) {
-			e.printStackTrace();
+//			userDAO.updateWords(id, word);
 		}
-		return userDAO.updateWords(id, word);
 	}
 	
 	// Add a company to a User

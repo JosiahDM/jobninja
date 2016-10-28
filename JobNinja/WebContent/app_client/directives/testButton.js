@@ -5,7 +5,7 @@
 
 var app = angular.module('ninja');
 
-app.directive('takeTest', function($compile, $window, registrationService, $location, authenticationService) { // Going to need authenticationServivce here
+app.directive('takeTest', function($compile, $window, registrationService, $location, authenticationService, profileService) { // Going to need authenticationServivce here
     return {
         restrict: 'E',
         scope : {
@@ -33,9 +33,17 @@ app.directive('takeTest', function($compile, $window, registrationService, $loca
                             			id : userId,
                             			tookTest : "true"
                             		}
-                            
-                            console.log(user);
-                            registrationService.editUser(user);
+                            profileService.getUserPersonality()
+                            .then(function(response) {
+                            	var keywords = response.data.personality_types[0].personality_type.keywords;
+                            	keywords = keywords + ', ' + response.data.personality_types[1].personality_type.keywords;
+                            	keywords = keywords + ', ' + response.data.personality_types[2].personality_type.keywords;
+                            	console.log(keywords);
+                            });
+//                            registrationService.editUser(user);
+                            var somestuff = traitify.personalityTypes.data.store
+                            console.log(somestuff["PersonalityTypes"]);
+                            console.log(traitify);
                     	});
 
                     	if (compiledBtn) {
