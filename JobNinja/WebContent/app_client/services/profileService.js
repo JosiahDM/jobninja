@@ -46,6 +46,22 @@ app.factory('profileService', function($http, authenticationService) {
     	 	});
     	 });
     }
+    
+    service.postUserWords = function(words){
+    	var user = authenticationService.currentUser();
+    	console.log(words + " " + user);
+    	
+    	return $http({
+            method : 'POST',
+            url : '/JobNinja/api/user/' + user.id + '/words',
+            headers : {
+                'Content-Type' : 'application/json',
+                'x-access-token' : authenticationService.getToken()
+            },
+            data : JSON.stringify(words)
+        });
+    	
+    }
 
     service.addCompany = function(companyObj) {
         var user = authenticationService.currentUser();

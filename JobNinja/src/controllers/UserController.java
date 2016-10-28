@@ -45,13 +45,12 @@ public class UserController {
 	// Add a Word to a User
 	@RequestMapping(path = "user/{id}/words", method = RequestMethod.POST)
 	public void updateWords(@PathVariable int id, @RequestBody String words) {
-		System.out.println(words);
-		
-		String[] wordsArray = words.split(", ");
+
+		String[] wordsArray = words.substring(1, words.length() - 1).split(", ");
 		
 		for (String word : wordsArray) {
-			System.out.println(word);
-//			userDAO.updateWords(id, word);
+			
+			userDAO.updateWords(id, word);
 		}
 	}
 	
