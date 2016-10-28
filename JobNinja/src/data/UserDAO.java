@@ -46,6 +46,9 @@ public class UserDAO {
 		if (user.getTestId() != null) {
 			u.setTestId(user.getTestId());
 		}
+		if (user.getTookTest() == true) {
+			u.setTookTest(true);
+		}
 		em.persist(u);
 		em.flush();
 		return u;

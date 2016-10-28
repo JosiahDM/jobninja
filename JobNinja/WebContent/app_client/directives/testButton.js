@@ -5,7 +5,7 @@
 
 var app = angular.module('ninja');
 
-app.directive('takeTest', function($compile, $window) { // Going to need authenticationServivce here
+app.directive('takeTest', function($compile, $window, registrationService, $location, authenticationService) { // Going to need authenticationServivce here
     return {
         restrict: 'E',
         scope : {
@@ -18,17 +18,35 @@ app.directive('takeTest', function($compile, $window) { // Going to need authent
             if ($scope.user) {
                 // Function to load the Traitify test view or results
                 $scope.loadTest = function() {
+                	
+                	if (!$scope.user.tookTest) {
+                		$window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
+                    	$window.Traitify.setHost("https://api-sandbox.traitify.com");
+                    	$window.Traitify.setVersion("v1");
+                    	var assessmentId = $scope.user.testId;
+                    	var traitify = $window.Traitify.ui.load(assessmentId, ".assessment",{slideDeck: {showResults: true}});
+                    	
+                    	traitify.slideDeck.onFinished(function() {
+                            console.log("FINISHED!!!!!!!!!!!!!!!");
+                            var userId = authenticationService.currentUser().id;
+                            var user = {
+                            			id : userId,
+                            			tookTest : "true"
+                            		}
+                            
+                            console.log(user);
+                            registrationService.editUser(user);
+                    	});
 
-                    $window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
-                    $window.Traitify.setHost("https://api-sandbox.traitify.com");
-                    $window.Traitify.setVersion("v1");
-                    var assessmentId = $scope.user.testId;
-                    $window.Traitify.ui.load(assessmentId, ".assessment");
-
-                    if (compiledBtn) {
-                        compiledBtn.remove();
-                        compiledBtn = null;
-                    }
+                    	if (compiledBtn) {
+                        	compiledBtn.remove();
+                        	compiledBtn = null;
+                    	}
+                    	
+                	}
+                	else {
+                		console.log("TAKEN!!!!!!!!!!!!!!!")
+                	}
                 }
 
                 // If user hasn't taken the test, display a button for them to start
