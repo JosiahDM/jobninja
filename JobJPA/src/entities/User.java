@@ -74,7 +74,7 @@ public class User {
 	public void setTestId(String testId) {
 		this.testId = testId;
 	}
-	public boolean isTookTest() {
+	public boolean getTookTest() {
 		return tookTest;
 	}
 	public void setTookTest(boolean tookTest) {

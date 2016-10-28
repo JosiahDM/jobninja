@@ -46,18 +46,20 @@ public class UserDAO {
 		if (user.getTestId() != null) {
 			u.setTestId(user.getTestId());
 		}
+		if (user.getTookTest() == true) {
+			u.setTookTest(true);
+		}
 		em.persist(u);
 		em.flush();
 		return u;
 	}
 
-	public User updateWords(int userId, Word word) {
+	public void updateWords(int userId, Word word) {
 		User updateUser = em.find(User.class, userId);
 		updateUser.addWord(word);
 		em.persist(updateUser);
 		em.persist(word);
 		em.flush();
-		return updateUser;
 	}
 
 	// Add new company to user
