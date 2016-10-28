@@ -23,7 +23,6 @@ app.factory('authenticationService', function($window, $http){
                 data : JSON.stringify(user)
               })
               .then(function(response){
-            	  console.log(response.data)
             	  if (response.status === 200) {
             		  saveToken(response.data.jwt);
       	    		}

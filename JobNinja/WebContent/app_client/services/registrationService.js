@@ -27,21 +27,15 @@ app.factory('registrationService', function($http){
       data : newUser
     });
   }
-  
+
   var createAssessment = function(){
 	  return $http({
-	      method : 'POST',
-	      url : 'https://api-sandbox.traitify.com/v1/assessments',
-	      headers : {
-	    	 'Authorization': 'Basic {secretKey}:x',
-	    	'Content-Type' : 'application/json'
-	      },
-	      data : {"deck_id": "core"}
+	      method : 'GET',
+	      url : 'api/external/traitify'
 	    });
   }
 
   var editUser = function(user) {
-    console.log(user);
     return $http({
       method : 'PUT',
       url : 'api/user/' + user.id + '/',

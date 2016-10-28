@@ -19,13 +19,12 @@ app.directive('takeTest', function($compile, $window) { // Going to need authent
                 // Function to load the Traitify test view or results
                 $scope.loadTest = function() {
 
-                    /* Temporariliy commented out to not overdo the API calls for now. Uncomment to test
                     $window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
                     $window.Traitify.setHost("https://api-sandbox.traitify.com");
                     $window.Traitify.setVersion("v1");
                     var assessmentId = $scope.user.testId;
                     $window.Traitify.ui.load(assessmentId, ".assessment");
-                    */
+
                     if (compiledBtn) {
                         compiledBtn.remove();
                         compiledBtn = null;

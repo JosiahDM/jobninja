@@ -40,8 +40,12 @@ public class UserDAO {
 
 	public User update(int id, User user) {
 		User u = em.find(User.class, id);
-		u.setUsername(user.getUsername());
-		u.setPassword(user.getPassword());
+		if (user.getPassword() != null) {
+			u.setPassword(user.getPassword());			
+		}
+		if (user.getTestId() != null) {
+			u.setTestId(user.getTestId());
+		}
 		em.persist(u);
 		em.flush();
 		return u;
