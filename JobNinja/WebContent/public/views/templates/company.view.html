@@ -1,15 +1,15 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class = "container">
-<h1 class="text-center">{{company.companyname}}</h1>
+<h1 class="hvy">{{company.companyname}}</h1>
 <hr>
 <div class = "row">
-	<div class= "col-md-4">
-		<div class = "jumbotron">
-			<h1>50%</h1>
-			<h6>match</h6>
+	<div class= "col-sm-4">
+		<div class = "well text-center">
+			<h1 class="percent">75</h1>
+			<h6>% match</h6>
 		</div>
 	</div>
-	<div class= "col-md-8">
+	<div class= "col-sm-8">
 		<h3>Based on these words...</h3>
 		<h5 ng-repeat="word in company.words">{{word.value}}</h5>
 	</div>

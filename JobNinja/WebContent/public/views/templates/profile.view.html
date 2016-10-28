@@ -1,14 +1,44 @@
 <header ng-include="'public/partials/nav.html'"></header>
-<h1>Profile</h1>
+<div class="container">
 
-<ul>
-    <li ng-repeat="c in companies" data="c">{{c.companyname}}
-        <button ng-click="view(c)" >View</button>
-        <button ng-click="deleteCompany(c)">Remove</button>
-    </li>
-    <li>
-        <button add-company-button addcompany="addCompany">Add Company</button>
-    </li>
-</ul>
+	<h1 class="hvy">Profile</h1>
+	<hr>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="well">
+				<h1>My Personality</h1>
+				<hr>
+				<p>I have words</p>
+				<p>I have the best wprds</p>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h1>My Companies</h1>
+				<hr>
+
+					<div class="row padtb" ng-repeat="c in companies" data="c">
+						<div class="col-xs-7">{{c.companyname}}</div>
+						<div class="col-xs-5">
+							<button class="btn btn-xs" ng-click="view(c)">View</button>
+							<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)">Remove</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row padtb text-center">
+						<button class="btn btn-primary" add-company-button
+							addcompany="addCompany">Add Company</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+
 
 <footer ng-include="'public/partials/footer.html'"></footer>
