@@ -1,14 +1,29 @@
-
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 html, body {
   width: 100%;
   min-height: 100%;
-	max-height: 100000%;
+	/*max-height: 100000%;*/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-    margin-top: 100px;/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    /*min-height: 100%;
+    margin-top: 100px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes.
     background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
-    background-size: cover;
+    background-size: cover;*/
+    position: relative;
+    margin: 0;
+    padding-bottom: 1em;
+    min-height: 100%;
+    height: auto;
 }
 
 
@@ -26,14 +41,21 @@ body {
 /* Customize the text color and shadow color and to optimize text legibility. */
 h1{
 	color: red;
+  font-family: 'Nothing You Could Do', cursive;
 }
 h2{
+  font-family: 'Sigmar One', cursive;
 	color: red;
 }
 h3{}
 h4{}
 h5{}
 h6{}
+
+.hvy {
+  font-family: 'Sigmar One', cursive;
+  text-align: center;
+}
 
 .tagline {
     text-shadow: 0 0 10px #000;
@@ -45,21 +67,36 @@ h6{}
     margin: 0 auto;
 }
 
-.footer {
-    /*position: absolute;*/
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-}
 
 .wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin-top: 30px;
-    margin-bottom: 100px;
-    margin: 0 auto -30px; /* the bottom margin is the negative value of the footer's height */
+  padding-top: 100px;
 }
+/*.wrapper:after {
+  content: "";
+  display: block;
+}
+.footer, .wrapper:after {
+  height: 10rem;
+}*/
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  float: right;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 0%,rgba(255,0,0,1) 50%,rgba(0,0,0,1) 100%);
+}
+.footp {
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
 .navbar{
   background-image:  linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 100%);
 
@@ -115,4 +152,18 @@ label {
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
      border-color: rgba(0, 0, 0, 0);
+}
+
+.assessment {
+      position: relative;
+      /*max-height: 475px;*/
+      max-height: 32em;
+      min-height: 100%;
+}
+.padtb {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.percent {
+  font-size: 10em;
 }
