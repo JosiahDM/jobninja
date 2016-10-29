@@ -28,8 +28,8 @@ app.directive('addCompanyButton', function($compile, profileService) {
                                 <input type="text" class="form-control" id="inputArea" ng-model="data"/>
                                 </div>
                                 <div class="col-md-5 col-sm-12 padtb">
-                                <button class="btn btn-success" ng-click="save(data)">Submit</button>
-                                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                                <button class="btn btn-success" ng-click="save(data)"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                <button class="btn btn-warning" ng-click="cancel()"><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
                                 </div>
                                 `;
