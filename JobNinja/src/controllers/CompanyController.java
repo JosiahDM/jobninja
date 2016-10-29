@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,17 +39,10 @@ public class CompanyController {
 		return companyDAO.indexWords(id);
 	}
 	@RequestMapping(path = "company/{id}/words", method = RequestMethod.POST)
-	public void updateWords(@PathVariable int id, @RequestBody String wordJSON) {
-		ObjectMapper mapper = new ObjectMapper();
-		Word word = null;
-
-		try {
-			word = mapper.readValue(wordJSON, Word.class);
-			System.out.println(word);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		companyDAO.updateWords(id, word);
+	public Company updateWords(@PathVariable int id, @RequestBody String wordJSON) {
+		String[] words = wordJSON.substring(2, wordJSON.length()-2).split("\",\"");
+		Set<String> uniqueWords = new TreeSet<String>(Arrays.asList(words));
+		return companyDAO.updateWords(id, uniqueWords);
 	}
 	
 	@RequestMapping(path = "company/{id}", method = RequestMethod.PUT)

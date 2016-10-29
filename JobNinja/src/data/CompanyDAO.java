@@ -1,6 +1,7 @@
 package data;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,11 +37,24 @@ public class CompanyDAO {
 		em.persist(updateCompany);
 		em.flush();
 	}
-	public void updateWords(int companyId, Word word) {
+	
+	public Company updateWords(int companyId, Set<String> words) {
+		String[] uniqueWords = words.toArray(new String[words.size()]);
 		Company updateCompany = em.find(Company.class, companyId);
-		updateCompany.addWord(word);
+		int batchSize = 30;
+		for (int i = 0; i < uniqueWords.length; i++) {
+		    Word word = new Word();
+		    word.setCompany(updateCompany);
+		    word.setValue(uniqueWords[i]);
+		    em.persist(word);
+		    if(i % batchSize == 0) {
+		        em.flush();
+		        em.clear();
+		    }
+		}
 		em.persist(updateCompany);
 		em.flush();
+		return updateCompany;
 	}
 
 	public void destroy(int companyId) {

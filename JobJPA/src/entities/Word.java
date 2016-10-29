@@ -15,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Table(name="words")
 public class Word {
 
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="wordid")
@@ -32,6 +34,13 @@ public class Word {
 	@JsonBackReference(value="companyWords")
 	private Company company;
 
+	public Word() {}
+	
+	public Word(String value, Company company) {
+		this.value = value;
+		this.company = company;
+	}
+	
 	public String getValue() {
 		return value;
 	}

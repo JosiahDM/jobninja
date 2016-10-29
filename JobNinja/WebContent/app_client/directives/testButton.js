@@ -9,44 +9,39 @@ app.directive('takeTest', function($compile, $window, registrationService, $loca
     return {
         restrict: 'E',
         scope : {
-            user : '='
+            data : '='
         },
         link : function($scope, $element, $attr) {
             var compiledBtn = null;
-
+            
             // If user is logged in
             if ($scope.user) {
                 // Function to load the Traitify test view or results
                 $scope.loadTest = function() {
-                	
-                	if (!$scope.user.tookTest) {
+
                 		$window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
                     	$window.Traitify.setHost("https://api-sandbox.traitify.com");
                     	$window.Traitify.setVersion("v1");
                     	var assessmentId = $scope.user.testId;
                     	var traitify = $window.Traitify.ui.load(assessmentId, ".assessment",{slideDeck: {showResults: true}});
-                    	
+
                     	traitify.slideDeck.onFinished(function() {
                             console.log("FINISHED!!!!!!!!!!!!!!!");
                             var userId = authenticationService.currentUser().id;
-                            var user = {
+                            var userObj = {
                             			id : userId,
                             			tookTest : "true"
                             		}
-                            
-                            console.log(user);
-                            registrationService.editUser(user);
+
+                            console.log(userObj);
+                            registrationService.editUser(userObj);
                     	});
 
                     	if (compiledBtn) {
                         	compiledBtn.remove();
                         	compiledBtn = null;
                     	}
-                    	
-                	}
-                	else {
-                		console.log("TAKEN!!!!!!!!!!!!!!!")
-                	}
+
                 }
 
                 // If user hasn't taken the test, display a button for them to start

@@ -9,6 +9,13 @@
 			<h6>match</h6>
 		</div>
 	</div>
+    <div>
+        <button ng-model="show" ng-click="inputButton()">Add Data</button>
+        <span ng-show="show">
+            <input type="text" ng-model="url" placeholder="Enter Content URL">
+            <button ng-click="submitCompanyUrl(url)">Submit</button>
+        </span>
+    </div>
 	<div class= "col-md-8">
 		<h3>Based on these words...</h3>
 		<h5 ng-repeat="word in company.words">{{word.value}}</h5>
