@@ -61,6 +61,8 @@ h6{}
     text-shadow: 0 0 10px #000;
     color: #fff;
     text-align: center;
+    padding-top: 30%;
+    font-size: 5em;
 }
 
 .img-center {
@@ -94,7 +96,7 @@ h6{}
 .footp {
   color: #ffffff;
   padding-top: 40px;
-  padding-bottom: 0px;
+  padding-bottom: 5px;
   margin: 0px;
 }
 
