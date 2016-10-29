@@ -6,7 +6,7 @@ app.controller('loginController', function($scope, authenticationService, $locat
 	    authenticationService.login(username, password)
 	    .then(function(response){
 	    	console.log("login");
-	    	$location.path('/');
+	    	$location.path('/profile');
 	    });
 	  }
 	

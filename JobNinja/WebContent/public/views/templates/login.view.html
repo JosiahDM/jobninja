@@ -1,8 +1,18 @@
 <header ng-include="'public/partials/nav.html'"></header>
-<h1>Login</h1>
-<form name="loginForm">
-	<input type='text' placeholder='username' ng-model="username"></input> 
-	<input type='text' placeholder='password' ng-model="password"></input> 
-	<button ng-click='login(username, password)'>Submit</button>
-</form>
+
+<div class="container">
+	<h1>Login</h1>
+	<form name="loginForm" class="loginForm">
+		<div class="form-group">
+			<label for="usernamelogin">Username</label>
+			<input type='text' class="form-control" placeholder='username' ng-model="username" id="usernamelogin"></input>
+		</div>
+		<div class="form-group">
+			<label for="passwordlogin">Password</label>
+			<input type="password" class="form-control" id="passwordlogin" placeholder="Password" ng-model="password">
+		</div>
+		<button class="btn btn-default" ng-click='login(username, password)'>Submit</button>
+	</form>
+</div>
+
 <footer ng-include="'public/partials/footer.html'"></footer>

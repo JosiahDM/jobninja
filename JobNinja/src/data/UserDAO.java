@@ -54,13 +54,16 @@ public class UserDAO {
 		return u;
 	}
 
-	public User updateWords(int userId, Word word) {
+	public void updateWords(int userId, String word) {
 		User updateUser = em.find(User.class, userId);
-		updateUser.addWord(word);
+		Word newWord = new Word();
+		newWord.setUser(updateUser);
+		newWord.setValue(word);
+		
+		updateUser.addWord(newWord);
 		em.persist(updateUser);
-		em.persist(word);
+		em.persist(newWord);
 		em.flush();
-		return updateUser;
 	}
 
 	// Add new company to user

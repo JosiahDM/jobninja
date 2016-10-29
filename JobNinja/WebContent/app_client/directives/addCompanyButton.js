@@ -22,11 +22,17 @@ app.directive('addCompanyButton', function($compile, profileService) {
                 console.log("IN directive");
 
                 var $inputArea =
-                                `<li>
-                                <textarea id="inputArea" ng-model="data"></textarea>
-                                <button ng-click="save(data)">Submit</button>
-                                <button ng-click="cancel()">Cancel</button>
-                                </li>`;
+                                `
+                                <div class ="row">
+                                <div class="col-md-7 col-sm-12 padtb">
+                                <input type="text" class="form-control" id="inputArea" ng-model="data"/>
+                                </div>
+                                <div class="col-md-5 col-sm-12 padtb">
+                                <button class="btn btn-success" ng-click="save(data)">Submit</button>
+                                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                                </div>
+                                </div>
+                                `;
                 if (compiledInput === null) {
                     compiledInput = $compile($inputArea)($scope);
                     $element.after(compiledInput);
