@@ -18,7 +18,7 @@ public class JsonWebTokenGenerator {
 
 	  public String generateUserJwt(User user) {
 	    Date now = new Date();
-	    Date tomorrow = new Date(now.getTime() + (3600000 / 3));  //add 20 min to now ((ms per hr) / 3)
+	    Date tomorrow = new Date(now.getTime() + (3600000));  //add 60 min to now ((ms per hr))
 
 	    Map<String, Object> userJson = new HashMap<>();
 	    userJson.put("id", user.getId());
