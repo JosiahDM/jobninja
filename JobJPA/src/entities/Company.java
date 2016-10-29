@@ -3,6 +3,7 @@ package entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -30,7 +33,7 @@ public class Company {
 	@JsonBackReference(value="companies")
 	private User user;
 	
-	@OneToMany(mappedBy="company", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="company", fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
 	@JsonManagedReference(value="companyWords")
 	private Set<Word> words;
 

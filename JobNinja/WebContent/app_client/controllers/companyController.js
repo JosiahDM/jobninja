@@ -6,16 +6,11 @@ app.controller('companyController', function($scope, $location, profileService, 
 
     $scope.company = profileService.getCompany();
 
-
-    console.log($scope.company);
-
     $scope.inputButton = function() {
         $scope.show = true;
     };
 
     $scope.submitCompanyUrl = function(url) {
-        console.log(url);
-        console.log($scope.company);
         companyService.meaningCloudRequest(url)
         .then(function(response) {
             var concepts = [];
@@ -30,8 +25,8 @@ app.controller('companyController', function($scope, $location, profileService, 
     $scope.updateCompanyWords = function(wordArray, company) {
         companyService.addWordsToCompany(wordArray, company)
         .then(function(response){
+            console.log("Updated company with words: ");
             console.log(response);
-            console.log("ASDF");
         });
     };
 

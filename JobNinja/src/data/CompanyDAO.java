@@ -45,6 +45,7 @@ public class CompanyDAO {
 		for (int i = 0; i < uniqueWords.length; i++) {
 		    Word word = new Word();
 		    word.setCompany(updateCompany);
+		    updateCompany.addWord(word);
 		    word.setValue(uniqueWords[i]);
 		    em.persist(word);
 		    if(i % batchSize == 0) {
@@ -52,7 +53,6 @@ public class CompanyDAO {
 		        em.clear();
 		    }
 		}
-		em.persist(updateCompany);
 		em.flush();
 		return updateCompany;
 	}
