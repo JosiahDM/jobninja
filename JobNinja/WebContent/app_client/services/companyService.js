@@ -10,7 +10,8 @@ app.factory('companyService', function($http, authenticationService) {
         if (user) {
             return $http({
                 method : 'POST',
-                url : 'KEYGOESHERE'+urlIn+'&tt=c&uw=y'
+                url : '/JobNinja/api/external/mc',
+                data : urlIn
             });
         }
     };

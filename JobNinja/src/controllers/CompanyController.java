@@ -42,7 +42,11 @@ public class CompanyController {
 	public Company updateWords(@PathVariable int id, @RequestBody String wordJSON) {
 		String[] words = wordJSON.substring(2, wordJSON.length()-2).split("\",\"");
 		Set<String> uniqueWords = new TreeSet<String>(Arrays.asList(words));
-		return companyDAO.updateWords(id, uniqueWords);
+		
+		Company c = companyDAO.updateWords(id, uniqueWords);
+		System.out.println(c.getCompanyid());
+		System.out.println(c.getWords().size());
+		return c;
 	}
 	
 	@RequestMapping(path = "company/{id}", method = RequestMethod.PUT)

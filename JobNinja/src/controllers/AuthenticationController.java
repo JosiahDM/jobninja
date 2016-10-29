@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class AuthenticationController {
 
 	// Create User
 	@RequestMapping(value = "auth/signup", method = RequestMethod.POST)
-	public Map<String, String> signup(@RequestBody String userJson) {
+	public Map<String, String> signup(@RequestBody String userJson, HttpServletResponse res) {
 		ObjectMapper mapper = new ObjectMapper();
 		User user = null;
 		try {
@@ -42,15 +43,17 @@ public class AuthenticationController {
 			ioe.printStackTrace();
 		}
 		user = userDao.create(user);
+		Map<String, String> responseJson = new HashMap<>();
 		if (user != null) {
 			String jwtString = jwtGen.generateUserJwt(user);
-			Map<String, String> responseJson = new HashMap<>();
 			responseJson.put("jwt", jwtString);
 			responseJson.put("userId", String.valueOf(user.getId()));
 			return responseJson;
 		}
 		else {
-			return null;
+			responseJson.put("error", "User already exists");
+			res.setStatus(403);
+			return responseJson;
 		}
 	}
 
