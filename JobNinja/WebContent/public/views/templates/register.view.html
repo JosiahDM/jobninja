@@ -1,20 +1,44 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class="container">
 <h1 class="hvy">Register</h1>
-<form name="registerForm" novalidate>
+<div class="text-center">
+	<h3>Get personalized results in just three easy steps!</h3>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="well">
+			<div class="text-center">
+				<h2>1</h2>
+				<h4> Register</h4>
+				<h2>2</h2>
+				<h4>Take the personality assessment</h4>
+				<h2>3</h2>
+				<h4>Add employers to your Profile</h4>
+			</div>
+		</div>
+	</div>
+<div class="col-sm-6">
+	<div class="well">
+		<h2>Sign up...</h2>
+		<form name="registerForm" novalidate>
+			<div class="form-group">
+				<label for="usernamereg">Username</label>
+				<input type='text' class="form-control" name="username" placeholder='username' ng-model="username" required ng-minlength="4" ng-maxlength="12" id="usernamereg"> </input>
+				<div class="alert alert-danger" role="alert"  ng-show="registerForm.username.$touched && registerForm.username.$invalid">Username is required (4-12 characters)</div>
+			</div>
+			<div class="form-group">
+				<label for="passwordreg">Username</label>
+				<input type='password' class="form-control" name="password" placeholder='password' ng-model="password" ng-minlength="6" required id="passwordreg"></input>
+				<div class="alert alert-danger" role="alert" ng-show="registerForm.password.$touched && registerForm.password.$invalid">Password is required and must be more than 6 characters</div>
+			</div>
+			<button class="btn btn-default" ng-click='submit(username, password)' ng-disabled="registerForm.$invalid">Submit</button>
+		</form>
+	</div>
+</div>
 
-	<div class="form-group">
-		<label for="usernamereg">Username</label>
-		<input type='text' class="form-control" name="username" placeholder='username' ng-model="username" required ng-minlength="4" ng-maxlength="12" id="usernamereg"> </input>
-		<div class="alert alert-danger" role="alert"  ng-show="registerForm.username.$touched && registerForm.username.$invalid">Username is required (4-12 characters)</div>
-	</div>
-	<div class="form-group">
-		<label for="passwordreg">Username</label>
-		<input type='password' class="form-control" name="password" placeholder='password' ng-model="password" ng-minlength="6" required id="passwordreg"></input>
-		<div class="alert alert-danger" role="alert" ng-show="registerForm.password.$touched && registerForm.password.$invalid">Password is required and must be more than 6 characters</div>
-	</div>
-	<button class="btn btn-default" ng-click='submit(username, password)' ng-disabled="registerForm.$invalid">Submit</button>
-</form>
+
+
+</div>
 <div>
 </div>
 </div>

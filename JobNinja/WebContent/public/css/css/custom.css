@@ -45,9 +45,11 @@ h1{
 }
 h2{
   font-family: 'Sigmar One', cursive;
-	color: red;
+	color: black;
 }
-h3{}
+h3{
+    font-family: 'Nothing You Could Do', cursive;
+}
 h4{}
 h5{}
 h6{}
@@ -55,6 +57,7 @@ h6{}
 .hvy {
   font-family: 'Sigmar One', cursive;
   text-align: center;
+  font-size: 4em;
 }
 
 .tagline {
