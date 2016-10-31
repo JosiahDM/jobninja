@@ -1,7 +1,9 @@
 package entities;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -79,6 +81,13 @@ public class User {
 	}
 	public void setTookTest(boolean tookTest) {
 		this.tookTest = tookTest;
+	}
+	public List<Integer> getCompaniesIds() {
+		ArrayList<Integer> cIds = new ArrayList<>(companies.size());
+		for (Company company : companies) {
+			cIds.add(company.getCompanyid());
+		}
+		return cIds;
 	}
 	
 	@Override

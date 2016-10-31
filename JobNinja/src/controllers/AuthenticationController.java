@@ -59,9 +59,10 @@ public class AuthenticationController {
 
 	// Login a User
 	@RequestMapping(value = "auth/login", method = RequestMethod.POST)
-	public Map<String, String> login(@RequestBody String userJsonLogin) {
+	public Map<String, String> login(@RequestBody String userJsonLogin, HttpServletResponse res) {
 		ObjectMapper mapper = new ObjectMapper();
 		User user = null;
+		Map<String, String> responseJson = new HashMap<>();
 		try {
 			user = mapper.readValue(userJsonLogin, User.class);
 		} catch (IOException ioe) {
@@ -72,11 +73,14 @@ public class AuthenticationController {
 			user = userDao.authenticateUser(user);
 		} catch (Exception e) {
 			e.printStackTrace();
-			user = null;
 		}
 
+		if (user == null) {
+			res.setStatus(403);
+			responseJson.put("error", "Invalid login credentials.");
+			return responseJson;
+		}
 		String jwtString = jwtGen.generateUserJwt(user);
-		Map<String, String> responseJson = new HashMap<>();
 		responseJson.put("jwt", jwtString);
 		return responseJson;
 	}

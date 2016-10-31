@@ -24,7 +24,7 @@ var app = angular.module('ninja', ['ngRoute'])
                 templateUrl : '/JobNinja/public/views/templates/test.view.html',
                 controller : 'testController'
             })
-            .when('/company',{
+            .when('/company/:id?',{
             	templateUrl : '/JobNinja/public/views/templates/company.view.html',
             	controller : 'companyController'
             })

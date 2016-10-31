@@ -57,7 +57,8 @@ app.factory('authenticationService', function($window, $http){
         var payload = JSON.parse($window.atob(token.split('.')[1]));
         return {
           username : payload.username,
-          id : payload.id
+          id : payload.id,
+          companies : payload.companies
         };
       }
     };
