@@ -26,6 +26,13 @@ app.factory('companyService', function($http, authenticationService) {
             });
         }
     };
+    
+    service.getMatchRating = function(companyId, userId){
+    	return $http({
+  	      method : 'GET',
+  	      url : '/JobNinja/api/company/' + companyId + '/rating/' + userId
+  	    });
+    }
 
     return service;
 

@@ -5,7 +5,9 @@ app.controller('companyController', function($scope, $location, profileService, 
     $scope.show = false;
 
     $scope.company = profileService.getCompany();
-
+    
+    console.log($scope.company);
+    
     $scope.inputButton = function() {
         $scope.show = true;
     };
@@ -29,5 +31,12 @@ app.controller('companyController', function($scope, $location, profileService, 
             console.log(response);
         });
     };
+    
+    $scope.getMatchRating = function(companyId, userId){
+    	companyService.getMatchRating(companyId, userId)
+    	.then(function(response){
+    		$scope.company = response.data;
+    	});
+    }
 
 });
