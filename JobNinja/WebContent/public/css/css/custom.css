@@ -57,7 +57,7 @@ h6{}
 .hvy {
   font-family: 'Sigmar One', cursive;
   text-align: center;
-  font-size: 4em;
+  font-size: 2em;
 }
 
 .tagline {
@@ -76,19 +76,20 @@ h6{}
 .wrapper {
   padding-top: 100px;
   margin-bottom: 6em;
+  height: 100%;
 }
-/*.wrapper:after {
+/.wrapper:after {
   content: "";
   display: block;
 }
-.footer, .wrapper:after {
+/*.footer, .wrapper:after {
   height: 10rem;
 }*/
 .footer {
   bottom: 0;
   width: 100%;
   position: absolute;
-  float: right;
+  float: inherit;;
   right: 0;
   bottom: 0;
   left: 0;
@@ -99,7 +100,7 @@ h6{}
 .footp {
   color: #ffffff;
   padding-top: 40px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   margin: 0px;
 }
 
@@ -162,10 +163,13 @@ label {
 
 .assessment {
       position: relative;
+      padding-bottom: 100px;
       /*max-height: 475px;*/
       /*max-height: 32em;
       min-height: 100%;*/
+
 }
+
 .padtb {
   padding-top: 10px;
   padding-bottom: 10px;
