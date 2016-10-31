@@ -29,6 +29,7 @@ app.factory('registrationService', function($http){
   }
 
   var createAssessment = function(){
+      console.log("CREATING ASSESSMENT REG SERVICE");
 	  return $http({
 	      method : 'GET',
 	      url : 'api/external/traitify'
