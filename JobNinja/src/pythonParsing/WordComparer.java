@@ -3,6 +3,7 @@ package pythonParsing;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Paths;
 import java.util.Set;
 
 import entities.Word;
@@ -41,14 +42,18 @@ public class WordComparer {
 		double result = -1.0;
 		String line = "-1.0";
 		try {
-			
+			System.out.println();
+			System.out.println(userConverted);
+			System.out.println(companyConverted);
+//			System.out.println(Paths.get("").toAbsolutePath().toString());
 			ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
+			pb.redirectErrorStream(true);
 			Process p = pb.start();
 
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
 			while ((line = stdInput.readLine()) != null) {
-				result = Double.parseDouble(line);
+				System.out.println(line);
 			}
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
