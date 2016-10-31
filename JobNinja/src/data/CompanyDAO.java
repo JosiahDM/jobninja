@@ -9,7 +9,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Company;
+import entities.User;
 import entities.Word;
+import pythonParsing.WordComparer;
 
 @Transactional
 public class CompanyDAO {
@@ -67,5 +69,16 @@ public class CompanyDAO {
 		em.persist(newCompany);
 		em.flush();
 		return newCompany;
+	}
+	
+	// Sends company words and user words to WordComparer, then
+	// gets the similarity value and sets the company rating to that value
+	// Value will be -1 if something went wrong in the WordComparer.
+	public Company matchRating(int cid, int userId) {
+		Company c = em.find(Company.class, cid);
+		User u = em.find(User.class, userId);
+		WordComparer wc = new WordComparer(c.getWords(), u.getWords());
+		c.setRating(wc.getSimilarityValue());
+		return c;
 	}
 }

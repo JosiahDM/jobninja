@@ -67,4 +67,12 @@ public class CompanyController {
 	public void destroy(@PathVariable int id) {
 		companyDAO.destroy(id);
 	}
+	
+	// Get company match rating given company id and user id
+	@RequestMapping(path="company/{id}/rating/{userId}", method=RequestMethod.GET)
+	public Company getMatchRating(@PathVariable int id, @PathVariable int userId) {
+		Company c = companyDAO.matchRating(id, userId);
+		return c;
+	}
+	
 }

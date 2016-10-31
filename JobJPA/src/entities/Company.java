@@ -25,8 +25,8 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int companyid;
-	
 	private String companyname;
+	private double rating;
 
 	@ManyToOne
 	@JoinColumn(name="companyuserid")
@@ -63,6 +63,15 @@ public class Company {
 
 	public int getCompanyid() {
 		return companyid;
+	}
+	
+
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
 	}
 
 	@Override

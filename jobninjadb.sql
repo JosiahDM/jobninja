@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `companyid` INT NOT NULL AUTO_INCREMENT,
   `companyname` VARCHAR(45) NOT NULL,
   `companyuserid` INT NOT NULL,
+  `rating` DECIMAL NULL,
   PRIMARY KEY (`companyid`),
   INDEX `fkusercompany_idx` (`companyuserid` ASC),
   CONSTRAINT `fkusercompany`
@@ -99,7 +100,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobninjadb`;
-INSERT INTO `company` (`companyid`, `companyname`, `companyuserid`) VALUES (1, 'Skill Distillery', 1);
+INSERT INTO `company` (`companyid`, `companyname`, `companyuserid`, `rating`) VALUES (1, 'Skill Distillery', 1, NULL);
 
 COMMIT;
 
