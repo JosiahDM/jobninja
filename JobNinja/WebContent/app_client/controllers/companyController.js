@@ -1,6 +1,6 @@
 var app = angular.module('ninja');
 
-app.controller('companyController', function($scope, $location, companyService, $routeParams) {
+app.controller('companyController', function($scope, $location, companyService, $routeParams, authenticationService) {
 
     $scope.company = null;
 
@@ -27,6 +27,9 @@ app.controller('companyController', function($scope, $location, companyService, 
                 concepts.push(results[i].form);
             }
             $scope.updateCompanyWords(concepts, $scope.company);
+            console.log($scope.company);
+            var user = authenticationService.currentUser();
+            $scope.getMatchRating($scope.company.companyid, user.id);
         });
     };
 
@@ -43,6 +46,7 @@ app.controller('companyController', function($scope, $location, companyService, 
     $scope.getMatchRating = function(companyId, userId){
     	companyService.getMatchRating(companyId, userId)
     	.then(function(response){
+    		console.log(response.data)
     		$scope.company = response.data;
     	});
     }
