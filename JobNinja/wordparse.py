@@ -2,6 +2,7 @@ from nltk.corpus import wordnet
 import sys
 
 list1 = sys.argv[1].split()
+
 list2 = sys.argv[2].split()
 
 results = []
