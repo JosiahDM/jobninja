@@ -1,0 +1,239 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  min-height: 100%;
+	/*max-height: 100000%;*/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    /*min-height: 100%;
+    margin-top: 100px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes.
+    background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
+    background-size: cover;*/
+    position: relative;
+    margin: 0;
+    padding-bottom: 1em;
+    min-height: 100%;
+    height: auto;
+}
+
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.business-header {
+    height: 600px;
+    background: url('http://localhost:8080/JobNinja/public/img/jobninja.JPG') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+h1{
+	color: red;
+  font-family: 'Nothing You Could Do', cursive;
+}
+h2{
+  font-family: 'Sigmar One', cursive;
+	color: black;
+}
+h3{
+    font-family: 'Nothing You Could Do', cursive;
+}
+h4{}
+h5{}
+h6{}
+
+.hvy {
+  font-family: 'Sigmar One', cursive;
+  text-align: center;
+  font-size: 4em;
+}
+
+.tagline {
+    text-shadow: 0 0 10px #000;
+    color: #fff;
+    text-align: center;
+    padding-top: 30%;
+    font-size: 5em;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+
+.wrapper {
+  padding-top: 100px;
+  margin-bottom: 6em;
+}
+/*.wrapper:after {
+  content: "";
+  display: block;
+}
+.footer, .wrapper:after {
+  height: 10rem;
+}*/
+.footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  float: right;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 0%,rgba(255,0,0,1) 50%,rgba(0,0,0,1) 100%);
+}
+.footp {
+  color: #ffffff;
+  padding-top: 40px;
+  padding-bottom: 5px;
+  margin: 0px;
+}
+
+.navbar{
+  background-image:  linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+.navbar-header {
+  height: 99px;
+}
+.navbar ul{
+  color: #ffffff;
+  font-size: 1.25em;
+  padding-top: 20px;
+
+}
+.logo{
+  font-size: 1.75em
+}
+.logo-job{
+  font-family: 'Sigmar One', cursive;
+}
+.logo-ninja{
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 3em;
+}
+.navbar-logo {
+  float: left;
+height: 50px;
+padding: 15px 15px;
+
+}
+label {
+  color: black;
+}
+.loginForm{
+  padding: 10px;
+  width: 100%;
+}
+.dropdown-menu{
+  width: 400px;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #f5f5f5;
+    background-color: #000000;
+}
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+    max-height: 100%;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+     border-color: rgba(0, 0, 0, 0);
+}
+
+.assessment {
+      position: relative;
+      /*max-height: 475px;*/
+      /*max-height: 32em;
+      min-height: 100%;*/
+}
+.padtb {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.percent {
+  font-size: 10em;
+}
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  background-color: #000000;
+  color: #ffffff;
+}
+.btn:hover {
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 10px #000000;
+    -moz-box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #000000;
+}
+.btn-primary {
+    background-color: #666666;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #000000;
+}
+.btn-success {
+    background-color: #006901;
+}
+.btn-success {
+    color: #fff;
+    background-color: #006901;
+    border-color: #006901;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #009901;
+    border-color: #009901;
+}
+.btn-danger {
+  color: #fff;
+    background-color: #b40808;
+    border-color: #b40808;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #f20000;
+    border-color: #f20000;
+}
+.btn-warning {
+    color: #fff;
+    background-color: #d1c200;
+    border-color: #d1c200;
+}
+.btn-warning:hover {
+    color: #fff;
+    background-color: #d1d200;
+    border-color: #d1d200;
+}
+.personality-types-container-scroller {
+    max-height: 120px;
+  }
+  .label-default {
+      background-color: #ffffff;
+      color: #000000;
+      font-size: 1.25em;
+  }
+  .words{
+    display: inline-flex;
+  }

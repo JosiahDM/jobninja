@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="ninja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="public/js/angular.min.js"></script>
+        <script src="public/js/angular-route.min.js"></script>
+
+					<title>Job NINJA</title>
+
+					<!-- Bootstrap Core CSS -->
+					<link href="public/css/css/bootstrap.min.css" rel="stylesheet">
+
+					<!-- Custom CSS -->
+					<link href="public/css/css/custom.css" rel="stylesheet">
+
+					<!-- Custom fonts -->
+					<link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Sigmar+One" rel="stylesheet">
+					<script src="https://use.fontawesome.com/f3e697ff49.js"></script>
+
+
+        <!-- Module file -->
+        <script src="app_client/app.js"></script>
+        <!-- Controllers -->
+        <script src="app_client/controllers/profileController.js" type="text/javascript"></script>
+        <script src="app_client/controllers/registrationController.js"></script>
+        <script src="app_client/controllers/loginController.js"></script>
+        <script src="app_client/controllers/homeController.js"></script>
+        <script src="app_client/controllers/testController.js"></script>
+        <script src="app_client/controllers/companyController.js"></script>
+        <!-- Filters -->
+        <!-- Directives -->
+         <script src="app_client/directives/addCompanyButton.js" ></script>
+        <!-- Services -->
+        <script src="app_client/services/companyService.js"></script>
+        <script src="app_client/services/profileService.js"></script>
+        <script src="app_client/services/registrationService.js"></script>
+        <script src="app_client/services/authenticationService.js"></script>
+        <!-- Assessment from Traitify -->
+        <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+</head>
+<body>
+	<!-- CONTENT -->
+	<div class="wrapper">
+		<div ng-view>
+			<!-- MAGIC ANGULAR STUFF -->
+		</div>
+	</div>
+
+	<!-- FOOTER -->
+		<footer class="footer">
+			<p class="footp">
+
+				Copyright &copy; Your Website 2014
+			</p>
+
+		</footer>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		 		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		 		<script src="public/css/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

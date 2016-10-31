@@ -1,0 +1,31 @@
+<header ng-include="'public/partials/nav.html'"></header>
+<div class = "container">
+<h1 class="hvy">{{company.companyname}}</h1>
+<hr>
+<div class = "row">
+	<div class= "col-sm-4">
+		<div class = "well text-center">
+			<h1 class="percent">75</h1>
+			<h6>% match</h6>
+		</div>
+	</div>
+
+    <div>
+        <button ng-model="show" ng-click="inputButton()">Add Data</button>
+        <span ng-show="show">
+            <input type="text" ng-model="url" placeholder="Enter Content URL">
+            <button ng-click="submitCompanyUrl(url)">Submit</button>
+        </span>
+    </div>
+
+	<div class= "col-sm-8">
+
+		<h3>Based on these words...</h3>
+		
+		<p><span ng-repeat="word in company.words">
+		{{word.value}} //</span>
+		</p>
+	</div>
+</div>
+</div>
+<footer ng-include="'public/partials/footer.html'"></footer>

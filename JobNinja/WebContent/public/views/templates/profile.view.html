@@ -1,0 +1,51 @@
+<header ng-include="'public/partials/nav.html'"></header>
+<div class="container">
+
+	<h1 class="hvy">Profile</h1>
+
+	<hr>
+
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="well">
+				<h1>My Personality</h1>
+				<div class="text-center">
+			  <a class="btn btn-primary" href="#/test">Take test/View Results</a>
+			</div>
+				<hr>
+				<div class="container text-center words">
+					<!-- WORDS WILL GO HERE... idk what this will be like yet -->
+			</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h1>My Companies</h1>
+				<hr>
+
+					<div class="row padtb" ng-repeat="c in companies" data="c">
+						<div class="col-xs-7">{{c.companyname}}</div>
+						<div class="col-xs-5">
+							<button class="btn btn-xs" ng-click="view(c)">View</button>
+							<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)">Remove</button>
+						</div>
+					</div>
+					<hr>
+					<div class="row padtb text-center">
+						<button class="btn btn-primary" add-company-button
+							addcompany="addCompany">Add Company</button>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+
+
+<footer ng-include="'public/partials/footer.html'"></footer>
