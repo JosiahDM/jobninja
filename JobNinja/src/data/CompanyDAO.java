@@ -77,8 +77,10 @@ public class CompanyDAO {
 	public Company matchRating(int cid, int userId) {
 		Company c = em.find(Company.class, cid);
 		User u = em.find(User.class, userId);
-		WordComparer wc = new WordComparer(c.getWords(), u.getWords());
+		WordComparer wc = new WordComparer(u.getWords(), c.getWords());
 		c.setRating(wc.getSimilarityValue());
+		em.persist(c);
+		em.flush();
 		return c;
 	}
 }
