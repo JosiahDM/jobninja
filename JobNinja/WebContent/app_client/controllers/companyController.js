@@ -40,4 +40,11 @@ app.controller('companyController', function($scope, $location, companyService, 
         });
     };
 
+    $scope.getMatchRating = function(companyId, userId){
+    	companyService.getMatchRating(companyId, userId)
+    	.then(function(response){
+    		$scope.company = response.data;
+    	});
+    }
+
 });
