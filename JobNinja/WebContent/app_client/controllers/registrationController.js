@@ -9,8 +9,6 @@ app.controller('registrationController', function($scope, registrationService, $
     $scope.newTestId = function() {
         registrationService.createAssessment()
         .then(function(response){
-            console.log("REG CONTROLLER RESPONSE::::");
-            console.log(response);
             testId = response.data.id;
         })
         .then(function() {
@@ -28,13 +26,9 @@ app.controller('registrationController', function($scope, registrationService, $
 	$scope.submit = function(username, password){
 	    registrationService.createUser(username, password)
         .then(function(response) {
-            console.log("REGISTRATION CONTROLLER: THEN1::");
-            console.log(response);
             authenticationService.login(username, password);
         })
 	    .then(function(response){
-            console.log("REGISTRATION CONTROLLER: THEN2::");
-            console.log(response);
 	    		$scope.newTestId();
 	    })
         .catch(function(response) {
@@ -42,10 +36,5 @@ app.controller('registrationController', function($scope, registrationService, $
             // ERROR DISPLAY STUFF CAN GO HERE?
         });
 	}
-
-
-
-
-
 
 });
