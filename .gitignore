@@ -7,3 +7,4 @@ bin
 .recommenders
 JobNinja/src/traitify
 JobNinja/src/traitify/*
+JobNinja/nltk_data
