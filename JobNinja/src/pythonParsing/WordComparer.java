@@ -43,8 +43,11 @@ public class WordComparer {
 	// a coefficient from 0-1. Returns -1 if error
 	public double getSimilarityValue() {
 		List<String> results = new ArrayList();
-		double result = -1.0;
+		double result = 0;
 		String line = "-1.0";
+		if(userConverted == null) {
+			return result;
+		}
 		try {
 			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 			System.out.println(userConverted);
