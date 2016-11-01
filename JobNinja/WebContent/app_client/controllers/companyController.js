@@ -33,12 +33,15 @@ app.controller('companyController', function($scope, $location, companyService, 
             	var user = authenticationService.currentUser();
             	console.log($scope.company.companyid + " " + user.id);
             	$scope.getMatchRating($scope.company.companyid, user.id);
+            })
+            .catch(function(response) {
+                $scope.error = response.data.error;
             });
         });
     };
 
     $scope.updateCompanyWords = function(wordArray, company) {
-        companyService.addWordsToCompany(wordArray, company)
+        return companyService.addWordsToCompany(wordArray, company)
         .then(function(response){
             $scope.company = response.data;
         })
