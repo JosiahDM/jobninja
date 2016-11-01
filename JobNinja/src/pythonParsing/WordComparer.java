@@ -46,7 +46,13 @@ public class WordComparer {
 			System.out.println();
 			System.out.println(userConverted);
 			System.out.println(companyConverted);
-			// System.out.println(Paths.get("").toAbsolutePath().toString());
+			
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+			System.out.println(Paths.get("").toAbsolutePath().toString());
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+			
 			ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
 			pb.redirectErrorStream(true);
 			Process p = pb.start();
