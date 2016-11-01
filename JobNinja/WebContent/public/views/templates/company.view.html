@@ -1,16 +1,10 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class = "container">
 <h1 class="hvy">{{company.companyname}}</h1>
-<hr>
-<div class = "row">
-	<div class= "col-sm-6">
-		<div class = "well text-center">
-			<h1 class="percent">{{(company.rating)| number:0}}%</h1>
-			<h3>match with {{company.companyname}}</h3>
-		</div>
-	</div>
-<div class="col-sm-6">
-	<div class="well">
+<div class="row">
+	<div class="col-sm-12">
+		<div class="well">
+\
 		<button ng-model="show" ng-click="inputButton()">Add Data</button>
         <button ng-click="getMatchRating(company.companyid, company.userId)">Recalculate Rating</button>
         <button ng-click="clearWords(company)">Clear Words</button>
@@ -19,26 +13,41 @@
 			<button ng-click="submitCompanyUrl(url)">Submit</button>
 		</span>
 	</div>
-        {{error}}
+</div>
+
+	<div class = "container-fluid blackcontainer">
+
+		<div class="text-center">
+			<div ng-show="company.rating" class= "col-sm-12">
+				<div class = "text-center">
+					<h1 class="percent">{{(company.rating)| number:0}}%</h1>
+					<h3>match with {{company.companyname}}</h3>
+				</div>
+			</div>
+
+		</div>
+
 </div>
 
 
 
 
 
+<div class="container">
+<!-- Modal -->
 
 
 
 
 
 
-<div class="row">
+<div class="row" ng-show="company.rating">
 
 	<div class= "col-sm-12">
 		<div class="text-center">
 			<h3>Based on these words...</h3>
 		</div>
-        <div ng-show="flip" class="ninja jump-se"></div>
+
 		<p>
             <span ng-repeat="word in company.words">
 			{{word.value}} //
@@ -51,3 +60,25 @@
 </div>
 </div>
 <footer ng-include="'public/partials/footer.html'"></footer>
+
+
+<div class="modal fade in" aria-hidden="false"  style="display: block;" ng-show="flip">
+            <div class="modal-dialog">
+                <div class="modal-content">
+									<div class="modal-header">
+
+						        <h4 class="modal-title" id="myModalLabel">Please wait...</h4>
+						      </div>
+									<div class="text-center">
+										<h1>OUR NINJAS</h1>
+										<div class="ninja jump-se"></div>
+										<h1>ARE AT WORK</h1>
+										<p>
+											We are calculating you compatability with this company.
+										</p>
+
+
+									</div>
+                </div>
+            </div>
+        </div>

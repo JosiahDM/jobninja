@@ -24,10 +24,10 @@ app.directive('addCompanyButton', function($compile, profileService) {
                 var $inputArea =
                                 `
                                 <div class ="row">
-                                <div class="col-md-7 col-sm-12 padtb">
-                                <input type="text" class="form-control" id="inputArea" ng-model="data"/>
+                                <div class="col-lg-9 col-md-7 col-sm-12 padtb">
+                                <input type="text" class="form-control text-center" id="inputArea" ng-model="data"/>
                                 </div>
-                                <div class="col-md-5 col-sm-12 padtb">
+                                <div class="col-lg-3 col-md-5 col-sm-12 padtb text-center">
                                 <button class="btn btn-success" ng-click="save(data)"><i class="fa fa-check" aria-hidden="true"></i></button>
                                 <button class="btn btn-warning" ng-click="cancel()"><i class="fa fa-times" aria-hidden="true"></i></button>
                                 </div>
