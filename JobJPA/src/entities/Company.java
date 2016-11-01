@@ -33,7 +33,7 @@ public class Company {
 	@JsonBackReference(value="companies")
 	private User user;
 	
-	@OneToMany(mappedBy="company", fetch=FetchType.EAGER, cascade=CascadeType.MERGE)
+	@OneToMany(mappedBy="company", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JsonManagedReference(value="companyWords")
 	private Set<Word> words;
 
