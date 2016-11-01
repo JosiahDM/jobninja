@@ -26,10 +26,14 @@ app.controller('companyController', function($scope, $location, companyService, 
             for (var i = 0; i < results.length; i++) {
                 concepts.push(results[i].form);
             }
-            $scope.updateCompanyWords(concepts, $scope.company);
-            console.log($scope.company);
-            var user = authenticationService.currentUser();
-            $scope.getMatchRating($scope.company.companyid, user.id);
+            $scope.updateCompanyWords(concepts, $scope.company)
+            .then(function(response) {
+            	console.log(response);
+            	console.log($scope.company);
+            	var user = authenticationService.currentUser();
+            	console.log($scope.company.companyid + " " + user.id);
+            	$scope.getMatchRating($scope.company.companyid, user.id);
+            });
         });
     };
 
