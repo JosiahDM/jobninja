@@ -18,9 +18,10 @@ app.controller('profileController', function($scope, $location, profileService) 
 
     // Button to bring up company info for viewing/adding more data
     $scope.view = function(company) {
+        console.log("VIEWING");
         $location.path('/company/'+company.companyid);
     };
-    
+
     // Delete a company from user's list
     $scope.deleteCompany = function(companyObj) {
         profileService.deleteCompany(companyObj)
@@ -37,9 +38,9 @@ app.controller('profileController', function($scope, $location, profileService) 
     $scope.addCompany = function(companyObj) {
         profileService.addCompany(companyObj)
             .then(function(response) {
-                if (response.status === 200) {
-                    $scope.companies.push(response.data);
-                }
+                console.log("PROFILE CONTROLLER:");
+                console.log(response);
+                $scope.companies.push(response.data);
             });
     };
 

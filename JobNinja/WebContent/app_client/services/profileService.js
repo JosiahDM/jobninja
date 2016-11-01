@@ -64,6 +64,8 @@ app.factory('profileService', function($http, authenticationService) {
 
     service.addCompany = function(companyObj) {
         var user = authenticationService.currentUser();
+        console.log("ADD COMPANY PROFILE SERVICE:::");
+        console.log(user);
         if (user) {
             return $http({
                 method : 'POST',

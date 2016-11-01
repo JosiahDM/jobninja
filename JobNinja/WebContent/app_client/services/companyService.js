@@ -27,7 +27,7 @@ app.factory('companyService', function($http, authenticationService) {
             });
         }
     };
-    
+
     service.getMatchRating = function(companyId, userId){
     	return $http({
   	      method : 'GET',
@@ -37,17 +37,20 @@ app.factory('companyService', function($http, authenticationService) {
 
     service.getCompany = function(id) {
         var user = authenticationService.currentUser();
-        if (user && service.userHasCompany(user, id)) {
-            return $http({
-                method : 'GET',
-                url : '/JobNinja/api/company/'+id
-            });
-        } else {
-            return $http({
-                method : 'GET',
-                url : '/JobNinja/api/auth/unauthorized'
-            });
-        }
+        return service.getCompanyRaw(id)
+        .then(function(response) {
+            var company = response.data;
+            if (user && service.companyHasUser(user.id, company)) {
+                currentCompany = company;
+            } else {
+                return $http({
+                    method : 'GET',
+                    url : '/JobNinja/api/auth/unauthorized'
+                });
+            }
+        });
+
+
     };
 
     service.getCurrentCompany = function() {
@@ -58,14 +61,15 @@ app.factory('companyService', function($http, authenticationService) {
         currentCompany = company;
     };
 
-    service.userHasCompany = function(user, companyId) {
-        var has = false;
-        for (var i = 0; i < user.companies.length; i++) {
-            if (user.companies[i] == companyId) {
-                has = true;
-            }
-        }
-        return has;
+    service.getCompanyRaw = function(companyId) {
+        return $http({
+            method : 'GET',
+            url : '/JobNinja/api/company/'+companyId
+        })
+    };
+
+    service.companyHasUser = function(userId, company) {
+        return company.userId == userId;
     };
 
     return service;
