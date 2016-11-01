@@ -53,12 +53,24 @@ app.controller('companyController', function($scope, $location, companyService, 
     };
 
     $scope.getMatchRating = function(companyId, userId){
+        $scope.flip = true;
     	companyService.getMatchRating(companyId, userId)
     	.then(function(response){
     		console.log(response.data)
             $scope.flip = false;
     		$scope.company = response.data;
-    	});
+    	})
+        .catch(function(response) {
+            $scope.error = response.data.error;
+            $scope.flip = false;
+        });
     }
+
+    $scope.clearWords = function(companyObj) {
+        companyService.clearWords(companyObj)
+        .then(function(response) {
+            $scope.company = response.data;
+        });
+    };
 
 });

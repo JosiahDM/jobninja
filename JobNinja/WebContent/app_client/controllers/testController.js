@@ -9,7 +9,6 @@ app.controller('testController', function($window, registrationService, $locatio
             $scope.user = response.data;
 
             $scope.loadTest = function() {
-            	console.log("inside loadTest " + $scope.user.tookTest);
             	if (!$scope.user.tookTest) {
             		$window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
                 	$window.Traitify.setHost("https://api.traitify.com");
@@ -18,7 +17,6 @@ app.controller('testController', function($window, registrationService, $locatio
                 	var traitify = $window.Traitify.ui.load(assessmentId, ".assessment",{slideDeck: {showResults: true}});
 
                 	traitify.slideDeck.onFinished(function() {
-                        console.log("FINISHED!!!!!!!!!!!!!!!");
                         var userId = authenticationService.currentUser().id;
                         var user = {
                         			id : userId,
@@ -35,14 +33,10 @@ app.controller('testController', function($window, registrationService, $locatio
                         	registrationService.editUser(user);
                         });
                         var somestuff = traitify.personalityTypes.data.store
-                        console.log(somestuff["PersonalityTypes"]);
-                        console.log(traitify);
                 	});
 
             	}
             	else {
-            		console.log("TAKEN!!!!!!!!!!!!!!!");
-            		console.log($scope.user.tookTest);
             		$window.Traitify.setPublicKey("v7ippc8rj0hu7tev7pi8tr2iid");
                 	$window.Traitify.setHost("https://api.traitify.com");
                 	$window.Traitify.setVersion("v1");

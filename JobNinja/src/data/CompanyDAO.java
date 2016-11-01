@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.hibernate.boot.model.source.spi.EmbeddableMapping;
 import org.springframework.transaction.annotation.Transactional;
 
 import entities.Company;
@@ -64,6 +65,17 @@ public class CompanyDAO {
 		em.remove(company);
 		em.flush();
 	}
+	
+	public Company deleteData(int id) {
+		String query = "delete from Word w where w.company.id = ?1";
+		em.createQuery(query)
+			.setParameter(1, id)
+			.executeUpdate();
+		Company c = em.find(Company.class, id);
+		c.setRating(null);
+		em.persist(c);
+		return c;
+	}
 
 	public Company create(Company newCompany) {
 		em.persist(newCompany);
@@ -78,7 +90,8 @@ public class CompanyDAO {
 		Company c = em.find(Company.class, cid);
 		User u = em.find(User.class, userId);
 		WordComparer wc = new WordComparer(u.getWords(), c.getWords());
-		c.setRating(wc.getSimilarityValue());
+		double rating = wc.getSimilarityValue();
+		c.setRating(rating == -1 ? null : rating);
 		em.persist(c);
 		em.flush();
 		return c;

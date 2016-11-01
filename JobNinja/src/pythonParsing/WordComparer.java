@@ -45,35 +45,42 @@ public class WordComparer {
 		List<String> results = new ArrayList();
 		double result = -1.0;
 		String line = "-1.0";
-		try {
-			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-			System.out.println(userConverted);
-			System.out.println(companyConverted);
-			ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
-			Process p = pb.start();
+		
+		System.out.println(userConverted);
+		if (userConverted == null || userConverted.equals("")) {
+			return result;
+		} else {
+			try {
+				System.out.println(
+						"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+				System.out.println(userConverted);
+				System.out.println(companyConverted);
+				ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
+				Process p = pb.start();
 
-			BufferedReader errInput = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-			String err = "";
-			while ((err = errInput.readLine()) != null) {
-				System.out.println(err);
+				BufferedReader errInput = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+				String err = "";
+				while ((err = errInput.readLine()) != null) {
+					System.out.println(err);
+				}
+
+				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+
+				while ((line = stdInput.readLine()) != null) {
+					results.add(line);
+				}
+
+				if (results.size() == 1) {
+					result = Double.parseDouble(results.get(0));
+				}
+				errInput.close();
+				stdInput.close();
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-
-			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-			while ((line = stdInput.readLine()) != null) {
-				results.add(line);
-			}
-
-			if (results.size() == 1) {
-				result = Double.parseDouble(results.get(0));
-			}
-			errInput.close();
-			stdInput.close();
-		} catch (NumberFormatException nfe) {
-			nfe.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
+		}
 		return result;
 	}
 

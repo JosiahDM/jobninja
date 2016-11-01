@@ -72,6 +72,16 @@ app.factory('companyService', function($http, authenticationService) {
         return company.userId == userId;
     };
 
+    service.clearWords = function(company) {
+        var user = authenticationService.currentUser();
+        if (user && user.id == company.userId) {
+            return $http({
+                method : 'DELETE',
+                url : '/JobNinja/api/company/'+company.companyid+'/words'
+            });
+        }
+    };
+
     return service;
 
 });
