@@ -17,8 +17,11 @@
               </a>
 			</div>
 				<hr>
-				<div class="container text-center words">
-                    <span ng-repeat="word in user.words">{{word.value}} <span>
+				<div class="container">
+                  <h4><div ng-repeat="word in user.words">{{word.value}} </div></h4>
+									<p><span ng-repeat="word in user.words">
+										{{word.value}} //</span>
+									</p>
 					<!-- WORDS WILL GO HERE... idk what this will be like yet -->
 	            </div>
 			</div>

@@ -1,6 +1,7 @@
 html {
   height: 100%;
   box-sizing: border-box;
+  background-color: black;
 }
 html, body {
   width: 100%;
@@ -24,10 +25,12 @@ body {
     padding-bottom: 1em;
     min-height: 100%;
     height: auto;
+    background-color: white;
 }
 
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
 
 .business-header {
     height: 600px;
@@ -78,6 +81,7 @@ h6{}
 
 
 .wrapper {
+  background-color: white;
   padding-top: 100px;
   margin-bottom: 6em;
   height: 100%;
@@ -85,6 +89,7 @@ h6{}
 /.wrapper:after {
   content: "";
   display: block;
+  background-color: white;
 }
 /*.footer, .wrapper:after {
   height: 10rem;
@@ -93,7 +98,6 @@ h6{}
   bottom: 0;
   width: 100%;
   position: absolute;
-  float: inherit;;
   right: 0;
   bottom: 0;
   left: 0;
@@ -110,10 +114,11 @@ h6{}
 
 .navbar{
   background-image:  linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 100%);
+  border-width: 0px;
 
 }
 .navbar-header {
-  height: 99px;
+  height: 100px;
 }
 .navbar ul{
   color: #ffffff;
@@ -167,10 +172,8 @@ label {
 
 .assessment {
       position: relative;
-      padding-bottom: 100px;
-      /*max-height: 475px;*/
-      /*max-height: 32em;
-      min-height: 100%;*/
+      padding-bottom: 30%;
+      margin-bottom: -30%;
 
 }
 
@@ -239,16 +242,19 @@ label {
     border-color: #d1d200;
 }
 .personality-types-container-scroller {
-    max-height: 120px;
-  }
-  .label-default {
-      background-color: #ffffff;
-      color: #000000;
-      font-size: 1.25em;
-  }
-  .words{
-    display: inline-flex;
-  }
-  .findout{
-    padding: 30px;
-  }
+  max-height: 120px;
+}
+.label-default {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.25em;
+}
+
+.findout{
+  padding: 30px;
+}
+.img-circle{
+  border-color: black;
+  border-width: 8px;
+  border-style: solid;
+}
