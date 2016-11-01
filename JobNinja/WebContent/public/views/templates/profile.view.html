@@ -26,10 +26,11 @@
 				<hr>
 
 					<div class="row padtb" ng-repeat="c in companies" data="c">
-						<div class="col-xs-7">{{c.companyname}}</div>
-						<div class="col-xs-5">
-							<button class="btn btn-xs" ng-click="view(c)">View</button>
-							<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)">Remove</button>
+						<div class="col-xs-9">{{c.companyname}}</div>
+						<div class="col-xs-3">
+							<button class="btn btn-xs" ng-click="view(c)"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+							<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 						</div>
 					</div>
 					<hr>
