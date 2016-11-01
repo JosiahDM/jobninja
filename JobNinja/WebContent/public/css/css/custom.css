@@ -249,9 +249,7 @@ label {
   color: #000000;
   font-size: 1.25em;
 }
-.words{
-  display: inline-flex;
-}
+
 .findout{
   padding: 30px;
 }
