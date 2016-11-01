@@ -3,11 +3,14 @@ var app = angular.module('ninja');
 app.controller('profileController', function($scope, $location, profileService) {
 
     $scope.companies = [];
+    $scope.user = {};
 
     // Get list of companies for user
     $scope.loadData = function() {
         profileService.getUser()
             .then(function(response) {
+                console.log(response.data);
+                $scope.user = response.data
                 $scope.companies = response.data.companies;
             }).catch(function(e) {
                 $location.path('/login');
