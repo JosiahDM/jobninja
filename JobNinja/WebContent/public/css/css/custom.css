@@ -239,16 +239,21 @@ label {
     border-color: #d1d200;
 }
 .personality-types-container-scroller {
-    max-height: 120px;
-  }
-  .label-default {
-      background-color: #ffffff;
-      color: #000000;
-      font-size: 1.25em;
-  }
-  .words{
-    display: inline-flex;
-  }
-  .findout{
-    padding: 30px;
-  }
+  max-height: 120px;
+}
+.label-default {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.25em;
+}
+.words{
+  display: inline-flex;
+}
+.findout{
+  padding: 30px;
+}
+.img-circle{
+  border-color: black;
+  border-width: 8px;
+  border-style: solid;
+}
