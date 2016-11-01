@@ -37,7 +37,7 @@
 						<div class="col-xs-3"><strong>Edit/Delete</strong></div>
 					</div>
 					<hr>
-					<div class="row padtb" ng-repeat="c in companies" data="c">
+					<div class="row padtb" ng-repeat="c in companies | orderBy:'-rating'" data="c">
 						<div class="col-xs-2"><span ng-show="c.rating">{{(c.rating)| number:0}}%</span></div>
 						<div class="col-xs-7">{{c.companyname}}</div>
 						<div class="col-xs-3">

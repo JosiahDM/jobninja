@@ -15,7 +15,6 @@
 		<span ng-show="show">
 			<input type="text" ng-model="url" placeholder="Enter Content URL">
 			<button ng-click="submitCompanyUrl(url)">Submit</button>
-			 <div class="ninja jump-se"></div>
 		</span>
 	</div>
 </div>
@@ -36,9 +35,12 @@
 		<div class="text-center">
 			<h3>Based on these words...</h3>
 		</div>
+        <div ng-show="flip" class="ninja jump-se"></div>
+		<p>
+            <span ng-repeat="word in company.words">
+			{{word.value}} //
+            </span>
 
-		<p><span ng-repeat="word in company.words">
-			{{word.value}} //</span>
 		</p>
 	</div>
 

@@ -3,6 +3,7 @@ var app = angular.module('ninja');
 app.controller('companyController', function($scope, $location, companyService, $routeParams, authenticationService) {
 
     $scope.company = null;
+    $scope.flip = false;
 
     if ($routeParams) {
         companyService.getCompany($routeParams.id)
@@ -19,6 +20,7 @@ app.controller('companyController', function($scope, $location, companyService, 
     };
 
     $scope.submitCompanyUrl = function(url) {
+        $scope.flip = true;
         companyService.meaningCloudRequest(url)
         .then(function(response) {
             var concepts = [];
@@ -54,6 +56,7 @@ app.controller('companyController', function($scope, $location, companyService, 
     	companyService.getMatchRating(companyId, userId)
     	.then(function(response){
     		console.log(response.data)
+            $scope.flip = false;
     		$scope.company = response.data;
     	});
     }
