@@ -14,18 +14,18 @@ public class WordComparer {
 	private Set<Word> companyWords;
 	private String userConverted;
 	private String companyConverted;
-	
+
 	public WordComparer(Set<Word> uw, Set<Word> cw) {
 		this.userWords = uw;
 		this.companyWords = cw;
 		init();
 	}
-	
+
 	private void init() {
 		userConverted = setToString(userWords);
 		companyConverted = setToString(companyWords);
 	}
-	
+
 	// Takes set of type Word and turns it into a string of values separated by
 	// a space
 	public String setToString(Set<Word> set) {
@@ -35,8 +35,9 @@ public class WordComparer {
 		}
 		return sb.toString();
 	}
-	
-	// Runs the python NLTK library to compute the similarity of words and returns
+
+	// Runs the python NLTK library to compute the similarity of words and
+	// returns
 	// a coefficient from 0-1. Returns -1 if error
 	public double getSimilarityValue() {
 		double result = -1.0;
@@ -45,7 +46,7 @@ public class WordComparer {
 			System.out.println();
 			System.out.println(userConverted);
 			System.out.println(companyConverted);
-//			System.out.println(Paths.get("").toAbsolutePath().toString());
+			// System.out.println(Paths.get("").toAbsolutePath().toString());
 			ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
 			pb.redirectErrorStream(true);
 			Process p = pb.start();
@@ -53,7 +54,8 @@ public class WordComparer {
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
 			while ((line = stdInput.readLine()) != null) {
-				System.out.println(line);
+
+				result = Double.parseDouble(line);
 			}
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
