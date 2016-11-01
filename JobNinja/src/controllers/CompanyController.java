@@ -1,9 +1,14 @@
 package controllers;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -70,10 +75,27 @@ public class CompanyController {
 	
 	// Get company match rating given company id and user id
 	@RequestMapping(path="company/{id}/rating/{userId}", method=RequestMethod.GET)
-	public Company getMatchRating(@PathVariable int id, @PathVariable int userId) {
+	public Company getMatchRating(@PathVariable int id, @PathVariable int userId, HttpServletResponse res) {
 		Company c = companyDAO.matchRating(id, userId);
 		System.out.println(c.getRating());
+		if (c.getRating() == null) {
+			
+			try {
+				res.sendRedirect("http://localhost:8080/JobNinja/api/company/error");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return c;
+	}
+	
+	@RequestMapping(path="company/error", method=RequestMethod.GET)
+	public Map<String, String> noWordsError(HttpServletResponse res) {
+		HashMap<String, String> json = new HashMap<>(1);
+		res.setStatus(404);
+		json.put("error", "You must complete the personality test before you can compare results.");
+		return json;
 	}
 	
 	@RequestMapping(path = "company/{id}/words", method = RequestMethod.DELETE)

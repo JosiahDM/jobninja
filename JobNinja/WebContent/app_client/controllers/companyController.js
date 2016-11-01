@@ -59,7 +59,11 @@ app.controller('companyController', function($scope, $location, companyService, 
     		console.log(response.data)
             $scope.flip = false;
     		$scope.company = response.data;
-    	});
+    	})
+        .catch(function(response) {
+            $scope.error = response.data.error;
+            $scope.flip = false;
+        });
     }
 
     $scope.clearWords = function(companyObj) {

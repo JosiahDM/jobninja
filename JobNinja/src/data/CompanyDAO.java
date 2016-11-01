@@ -90,7 +90,8 @@ public class CompanyDAO {
 		Company c = em.find(Company.class, cid);
 		User u = em.find(User.class, userId);
 		WordComparer wc = new WordComparer(u.getWords(), c.getWords());
-		c.setRating(wc.getSimilarityValue());
+		double rating = wc.getSimilarityValue();
+		c.setRating(rating == -1 ? null : rating);
 		em.persist(c);
 		em.flush();
 		return c;
