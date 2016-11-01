@@ -72,6 +72,7 @@ public class CompanyController {
 	@RequestMapping(path="company/{id}/rating/{userId}", method=RequestMethod.GET)
 	public Company getMatchRating(@PathVariable int id, @PathVariable int userId) {
 		Company c = companyDAO.matchRating(id, userId);
+		System.out.println(c.getRating());
 		return c;
 	}
 	

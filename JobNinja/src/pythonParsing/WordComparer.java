@@ -54,6 +54,7 @@ public class WordComparer {
 
 			while ((line = stdInput.readLine()) != null) {
 				System.out.println(line);
+				result = Double.parseDouble(line);
 			}
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
