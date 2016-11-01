@@ -12,6 +12,8 @@
 <div class="col-sm-6">
 	<div class="well">
 		<button ng-model="show" ng-click="inputButton()">Add Data</button>
+        <button ng-click="getMatchRating(company.companyid, company.userId)">Recalculate Rating</button>
+        <button ng-click="clearWords(company)">Clear Words</button>
 		<span ng-show="show">
 			<input type="text" ng-model="url" placeholder="Enter Content URL">
 			<button ng-click="submitCompanyUrl(url)">Submit</button>

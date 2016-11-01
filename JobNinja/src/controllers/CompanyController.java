@@ -76,4 +76,9 @@ public class CompanyController {
 		return c;
 	}
 	
+	@RequestMapping(path = "company/{id}/words", method = RequestMethod.DELETE)
+	public Company deleteWords(@PathVariable int id) {
+		return companyDAO.deleteData(id);
+	}
+	
 }
