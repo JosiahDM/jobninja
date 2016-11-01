@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import entities.Word;
@@ -40,34 +42,38 @@ public class WordComparer {
 	// returns
 	// a coefficient from 0-1. Returns -1 if error
 	public double getSimilarityValue() {
+		List<String> results = new ArrayList();
 		double result = -1.0;
 		String line = "-1.0";
 		try {
-			System.out.println();
+			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
 			System.out.println(userConverted);
 			System.out.println(companyConverted);
-			
-			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-			System.out.println(Paths.get("").toAbsolutePath().toString());
-			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-			
 			ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
-			pb.redirectErrorStream(true);
 			Process p = pb.start();
+
+			BufferedReader errInput = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+			String err = "";
+			while ((err = errInput.readLine()) != null) {
+				System.out.println(err);
+			}
 
 			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
 			while ((line = stdInput.readLine()) != null) {
-				System.out.println(line);
-				result = Double.parseDouble(line);
+				results.add(line);
 			}
+
+			if (results.size() == 1) {
+				result = Double.parseDouble(results.get(0));
+			}
+			errInput.close();
+			stdInput.close();
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
 		return result;
 	}
 
