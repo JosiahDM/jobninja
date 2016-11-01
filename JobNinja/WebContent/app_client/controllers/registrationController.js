@@ -29,11 +29,11 @@ app.controller('registrationController', function($scope, registrationService, $
             authenticationService.login(username, password);
         })
 	    .then(function(response){
-	    		$scope.newTestId();
+	    	$scope.newTestId();
 	    })
         .catch(function(response) {
             console.log(response);
-            // ERROR DISPLAY STUFF CAN GO HERE?
+            $scope.regError = response.data.error;
         });
 	}
 
