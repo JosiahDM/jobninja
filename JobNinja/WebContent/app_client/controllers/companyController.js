@@ -7,7 +7,7 @@ app.controller('companyController', function($scope, $location, companyService, 
     if ($routeParams) {
         companyService.getCompany($routeParams.id)
         .then(function(response){
-            $scope.company = response.data;
+            $scope.company = companyService.getCurrentCompany();
         });
     }
 

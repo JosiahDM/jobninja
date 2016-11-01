@@ -65,6 +65,9 @@ public class Company {
 		return companyid;
 	}
 	
+	public int getUserId() {
+		return user.getId();
+	}
 
 	public Double getRating() {
 		return rating;
