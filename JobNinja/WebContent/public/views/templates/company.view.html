@@ -1,27 +1,15 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class = "container">
 <h1 class="hvy">{{company.companyname}}</h1>
-<div class="row">
-	<div class="col-sm-12">
-		<div class="well">
-		<button ng-model="show" ng-click="inputButton()">Add Data</button>
 
-        <button ng-click="clearWords(company)">Clear Words</button>
-		<span ng-show="show">
-			<input type="text" ng-model="url" placeholder="Enter Content URL">
-			<button ng-click="submitCompanyUrl(url)">Submit</button>
-		</span>
-	</div>
 </div>
-</div>
-</div>
-	<div class = "container-fluid blackcontainer">
+	<div ng-show="company.rating" class = "container-fluid blackcontainer">
 
 		<div class="text-center">
-			<div ng-show="company.rating" class= "col-sm-12">
+			<div class= "col-sm-12">
 				<div class = "text-center">
 
-					<h1 class="percent">{{(company.rating)| number:0}}</h1>
+					<h1 class="percent">{{(company.rating)| number:0}}%</h1>
 
 					<h3>match with {{company.companyname}}</h3>
 				</div>
@@ -30,7 +18,24 @@
 		</div>
 
 </div>
+<div class="container-fluid redcontainer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="text-center">
+					<button ng-model="show" class="btn btn-primary" ng-click="inputButton()">Add Data</button>
 
+					<button class="btn btn-primary" ng-click="clearWords(company)">Clear Words</button>
+					<span ng-show="show">
+						<input type="text" class"from-control" ng-model="url" placeholder="Enter Content URL">
+						<button class="btn btn-primary" ng-click="submitCompanyUrl(url)">Submit</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
 
 
 
@@ -71,7 +76,7 @@
 						        <h4 class="modal-title" id="myModalLabel">Please wait...</h4>
 						      </div>
 									<div class="text-center">
-										<h1 class="hyv">HHHIIIIYYAAAAA!</h1>
+										<h1 class="hvy">HIYYAAAAA!</h1>
 										<h1>OUR NINJAS</h1>
 										<div class="ninja jump-se"></div>
 										<h1>ARE WORKING!</h1>
