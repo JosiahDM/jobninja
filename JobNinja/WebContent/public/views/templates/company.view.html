@@ -1,12 +1,13 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class = "container">
 <h1 class="hvy">{{company.companyname}}</h1>
-
 </div>
 	<div ng-show="company.rating" class = "container-fluid blackcontainer">
 
 		<div class="text-center">
-			<div class= "col-sm-12">
+
+			<div ng-show="company.rating >= 0" class= "col-sm-12">
+
 				<div class = "text-center">
 
 					<h1 class="percent">{{(company.rating)| number:0}}%</h1>
@@ -48,7 +49,7 @@
 
 
 
-<div class="row" ng-show="company.rating">
+<div class="row" ng-show="company.rating >= 0">
 
 	<div class= "col-sm-12">
 		<div class="text-center">
