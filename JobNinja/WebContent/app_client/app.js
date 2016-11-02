@@ -28,4 +28,7 @@ var app = angular.module('ninja', ['ngRoute'])
             	templateUrl : '/JobNinja/public/views/templates/company.view.html',
             	controller : 'companyController'
             })
+            .otherwise({
+                redirectTo : '/'
+            });
     });
