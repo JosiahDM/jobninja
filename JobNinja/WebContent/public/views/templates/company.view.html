@@ -6,7 +6,6 @@
 		<div class="well">
 \
 		<button ng-model="show" ng-click="inputButton()">Add Data</button>
-        <button ng-click="getMatchRating(company.companyid, company.userId)">Recalculate Rating</button>
         <button ng-click="clearWords(company)">Clear Words</button>
 		<span ng-show="show">
 			<input type="text" ng-model="url" placeholder="Enter Content URL">
@@ -20,7 +19,7 @@
 		<div class="text-center">
 			<div ng-show="company.rating" class= "col-sm-12">
 				<div class = "text-center">
-					<h1 class="percent">{{(company.rating)| number:0}}%</h1>
+					<h1 class="percent">{{(company.rating)| number:3}}%</h1>
 					<h3>match with {{company.companyname}}</h3>
 				</div>
 			</div>
