@@ -41,7 +41,7 @@
 					<hr>
 					<div class="row padtb" ng-repeat="c in companies | orderBy:['!rating', '-rating']" data="c">
 
-						<div class="col-xs-2"><span ng-show="c.rating">{{(c.rating)| number:0}}</span></div>
+						<div class="col-xs-2"><span ng-show="c.rating >= 0">{{(c.rating)| number:0}}</span></div>
 
 						<div class="col-xs-7">{{c.companyname}}</div>
 						<div class="col-xs-3">

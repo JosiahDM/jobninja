@@ -19,7 +19,7 @@
 	<div class = "container-fluid blackcontainer">
 
 		<div class="text-center">
-			<div ng-show="company.rating" class= "col-sm-12">
+			<div ng-show="company.rating >= 0" class= "col-sm-12">
 				<div class = "text-center">
 
 					<h1 class="percent">{{(company.rating)| number:0}}</h1>
@@ -44,7 +44,7 @@
 
 
 
-<div class="row" ng-show="company.rating">
+<div class="row" ng-show="company.rating >= 0">
 
 	<div class= "col-sm-12">
 		<div class="text-center">

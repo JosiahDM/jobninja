@@ -12,6 +12,9 @@ app.controller('companyController', function($scope, $location, companyService, 
 
             $scope.company = companyService.getCurrentCompany();
             console.log($scope.company);
+        })
+        .catch(function() {
+            $location.path("/");
         });
     }
 
@@ -68,7 +71,9 @@ app.controller('companyController', function($scope, $location, companyService, 
     		$scope.company = response.data;
     	})
         .catch(function(response) {
-            $scope.error = response.data.error;
+            if (response.data.error) {
+                $scope.error = response.data.error;
+            }
             $scope.flip = false;
         });
     }
