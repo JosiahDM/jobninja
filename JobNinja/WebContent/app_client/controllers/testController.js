@@ -3,6 +3,8 @@ var app = angular.module('ninja');
 app.controller('testController', function($window, registrationService, $location, authenticationService, profileService, $scope, $location, profileService) {
 
 
+    $scope.traitify = null;
+
     // Returns undefined if no valid user logged in
     profileService.getUser()
         .then(function(response) {

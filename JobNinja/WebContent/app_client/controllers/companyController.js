@@ -8,7 +8,10 @@ app.controller('companyController', function($scope, $location, companyService, 
     if ($routeParams) {
         companyService.getCompany($routeParams.id)
         .then(function(response){
+            console.log("IN THE COMPANY CONTROLLER");
+
             $scope.company = companyService.getCurrentCompany();
+            console.log($scope.company);
         });
     }
 
@@ -54,7 +57,7 @@ app.controller('companyController', function($scope, $location, companyService, 
 
     $scope.getMatchRating = function(companyId, userId){
         $scope.flip = true;
-    	companyService.getMatchRating(companyId, userId)
+    	return companyService.getMatchRating(companyId, userId)
     	.then(function(response){
     		console.log(response.data)
             $scope.flip = false;
@@ -65,6 +68,14 @@ app.controller('companyController', function($scope, $location, companyService, 
             $scope.flip = false;
         });
     }
+
+    // $scope.recalc = function(companyId, userId) {
+    //     $scope.getMatchRating(companyId, userId)
+    //     .then(function(response) {
+    //         console.log("ASDF");
+    //
+    //     });
+    // };
 
     $scope.clearWords = function(companyObj) {
         companyService.clearWords(companyObj)

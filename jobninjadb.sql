@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `companyid` INT NOT NULL AUTO_INCREMENT,
   `companyname` VARCHAR(45) NOT NULL,
   `companyuserid` INT NOT NULL,
-  `rating` DECIMAL NULL,
+  `rating` DECIMAL(15,15) NULL,
   PRIMARY KEY (`companyid`),
   INDEX `fkusercompany_idx` (`companyuserid` ASC),
   CONSTRAINT `fkusercompany`
