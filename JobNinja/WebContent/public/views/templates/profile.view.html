@@ -40,7 +40,7 @@
 					</div>
 					<hr>
 					<div class="row padtb" ng-repeat="c in companies | orderBy:['!rating', '-rating']" data="c">
-						<div class="col-xs-2"><span ng-show="c.rating">{{(c.rating)| number:0}}%</span></div>
+						<div class="col-xs-2"><span ng-show="c.rating">{{(c.rating) | number:0}}%</span></div>
 						<div class="col-xs-7">{{c.companyname}}</div>
 						<div class="col-xs-3">
 							<button class="btn btn-xs" ng-click="view(c)"><i class="fa fa-search" aria-hidden="true"></i></button>
