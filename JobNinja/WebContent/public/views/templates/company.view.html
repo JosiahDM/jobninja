@@ -4,22 +4,25 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="well">
-\
 		<button ng-model="show" ng-click="inputButton()">Add Data</button>
+
         <button ng-click="clearWords(company)">Clear Words</button>
 		<span ng-show="show">
-			<input type="text" ng-model="url" placeholder="Enter Content URL">
+			<input type="url" ng-model="url" placeholder="Enter Content URL">
 			<button ng-click="submitCompanyUrl(url)">Submit</button>
 		</span>
 	</div>
 </div>
-
+</div>
+</div>
 	<div class = "container-fluid blackcontainer">
 
 		<div class="text-center">
 			<div ng-show="company.rating" class= "col-sm-12">
 				<div class = "text-center">
-					<h1 class="percent">{{(company.rating)| number:3}}%</h1>
+
+					<h1 class="percent">{{(company.rating)| number:0}}</h1>
+
 					<h3>match with {{company.companyname}}</h3>
 				</div>
 			</div>
@@ -55,7 +58,6 @@
 		</p>
 	</div>
 
-</div>
 </div>
 </div>
 <footer ng-include="'public/partials/footer.html'"></footer>
