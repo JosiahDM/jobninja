@@ -42,6 +42,10 @@ app.controller('companyController', function($scope, $location, companyService, 
             .catch(function(response) {
                 $scope.error = response.data.error;
             });
+        })
+        .catch(function(response){
+            $scope.flip = false;
+            $scope.error = "Sorry, there was a problem processing this URL."
         });
     };
 
