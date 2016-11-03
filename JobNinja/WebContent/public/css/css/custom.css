@@ -1,343 +1,381 @@
 html {
-  height: 100%;
-  box-sizing: border-box;
-  background-color: #FFFFFF;
-}
-html, body {
-  width: 100%;
-  min-height: 100%;
-	/*max-height: 100000%;*/
+	height: 100%;
+	box-sizing: border-box;
+	background-color: #FFFFFF;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+html, body {
+	width: 100%;
+	min-height: 100%;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
 }
 
 body {
-    /*min-height: 100%;
-    margin-top: 100px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes.
-    background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 90%,rgba(255,0,0,1) 100%);
-    background-size: cover;*/
-    position: relative;
-    margin: 0;
-    padding-bottom: 1em;
-    min-height: 100%;
-    height: auto;
-    background-color: white;
-    overflow-x: hidden;
-    font-size: 100%;
+	position: relative;
+	margin: 0;
+	padding-bottom: 1em;
+	min-height: 100%;
+	height: auto;
+	background-color: white;
+	overflow-x: hidden;
+	font-size: 100%;
 }
-
-
-/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
-
 
 .business-headerbig {
-  /* max-height: 900px; */
-  min-height: 660px;
-  background: url(../../img/jobninja.JPG) center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position-y: 0;
-  background-attachment: fixed;
-  -webkit-background-attachment: inherit;
-
+	min-height: 660px;
+	background: url(../../img/jobninja.JPG) center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	background-position-y: 0;
+	background-attachment: fixed;
+	-webkit-background-attachment: inherit;
 }
+
 .business-headersmall {
-  /* max-height: 900px; */
-  min-height: 660px;
-  background: url(../../img/jobninja.JPG) center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position-y: 0;
-
+	min-height: 660px;
+	background: url(../../img/jobninja.JPG) center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	background-position-y: 0;
 }
 
-/* Customize the text color and shadow color and to optimize text legibility. */
-h1{
+h1 {
 	color: red;
-  font-family: 'Nothing You Could Do', cursive;
+	font-family: 'Nothing You Could Do', cursive;
 }
-h2{
-  font-family: 'Sigmar One', cursive;
+
+h2 {
+	font-family: 'Sigmar One', cursive;
 	color: black;
 }
-h3{
-    font-family: 'Nothing You Could Do', cursive;
-}
-h4{}
-h5{}
-h6{}
 
-  p{
-    font-family: 'Montserrat', sans-serif;
-  }
+h3 {
+	font-family: 'Nothing You Could Do', cursive;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.5em;
+}
 
 .hvy {
-  font-family: 'Sigmar One', cursive;
-  text-align: center;
-  font-size: 3em;
+	font-family: 'Sigmar One', cursive;
+	text-align: center;
+	font-size: 3em;
 }
 
 .tagline {
-    text-shadow: 0 0 10px #000;
-      font-family: 'Nothing You Could Do', cursive;
-    color: #fff;
-    text-align: center;
-    padding-top: 30%;
-    font-size: 5em;
+	text-shadow: 0 0 10px #000;
+	font-family: 'Nothing You Could Do', cursive;
+	color: #fff;
+	text-align: center;
+	padding-top: 30%;
+	font-size: 5em;
 }
 
 .img-center {
-    margin: 0 auto;
+	margin: 0 auto;
 }
-
 
 .wrapper {
-  background-color: white;
-  padding-top: 100px;
-  margin-bottom: 6em;
-  height: 100%;
-  width: 100%
+	background-color: white;
+	padding-top: 100px;
+	margin-bottom: 6em;
+	height: 100%;
+	width: 100%
 }
-/.wrapper:after {
-  content: "";
-  display: block;
-  background-color: white;
+
+.wrapper:after {
+	content: "";
+	display: block;
+	background-color: white;
 }
-/*.footer, .wrapper:after {
-  height: 10rem;
-}*/
+
 .footer {
-  bottom: 0;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #efefef;
-  text-align: center;
-  background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #efefef;
+	text-align: center;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%,
+		rgba(255, 0, 0, 1) 100%);
 }
-.footer a{
-  color: white;
+
+.footer a {
+	color: white;
 }
+
 .footp {
-  color: #ffffff;
-  padding-top: 40px;
-  padding-bottom: 0px;
-  margin: 0px;
+	color: #ffffff;
+	padding-top: 40px;
+	padding-bottom: 0px;
+	margin: 0px;
 }
 
-.navbar{
-  background-image:  linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(0,0,0,1) 100%);
-  border-width: 0px;
-
+.navbar {
+	background-image: linear-gradient(to right, rgba(255, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 1) 100%);
+	border-width: 0px;
 }
+
 .navbar-header {
-  height: 100px;
+	height: 100px;
 }
-.navbar ul{
-  color: #ffffff;
-  font-size: 2em;
-  padding-top: 20px;
 
+.navbar ul {
+	color: #ffffff;
+	font-size: 2em;
+	padding-top: 20px;
 }
-.logo{
-  font-size: 1.75em
+
+.logo {
+	font-size: 1.75em
 }
-.logo-job{
-  font-family: 'Sigmar One', cursive;
+
+.logo-job {
+	font-family: 'Sigmar One', cursive;
 }
-.logo-ninja{
-  font-family: 'Nothing You Could Do', cursive;
+
+.logo-ninja {
+	font-family: 'Nothing You Could Do', cursive;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #fff;
+	color: #fff;
 }
-.navbar-default .navbar-brand {
-    color: #fff;
-    font-size: 3em;
-}
-.navbar-logo {
-  float: left;
-height: 50px;
-padding: 15px 15px;
 
+.navbar-default .navbar-brand {
+	color: #fff;
+	font-size: 3em;
 }
+
+.navbar-logo {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+}
+
 label {
-  color: black;
+	color: black;
 }
-.loginForm{
-  padding: 10px;
-  width: 100%;
+
+.loginForm {
+	padding: 10px;
+	width: 100%;
 }
-.dropdown-menu{
-  width: 400px;
+
+.dropdown-menu {
+	width: 400px;
 }
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-    color: #f5f5f5;
-    background-color: #000000;
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus,
+	.navbar-default .navbar-nav>.open>a:hover {
+	color: #f5f5f5;
+	background-color: #000000;
 }
-.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
-    max-height: 100%;
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+	{
+	max-height: 100%;
 }
+
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-     border-color: rgba(0, 0, 0, 0);
+	border-color: rgba(0, 0, 0, 0);
 }
 
 .assessment {
-    position: relative;
-    margin-bottom: 150px;
-    padding-bottom: 150px;
+	position: relative;
+	margin-bottom: 150px;
+	padding-bottom: 150px;
 }
+
 a:focus, a:hover {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 .padtb {
-  padding-top: 10px;
-  padding-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
+
 .percent {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10em;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10em;
 }
+
 .percentwell {
-  float: left; margin-top: 10px;  width: 50%; margin: 10px
+	float: left;
+	margin-top: 10px;
+	width: 50%;
+	margin: 10px
 }
+
 .btn {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
-  background-color: #000000;
-  color: #ffffff;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0px;
+	background-color: #000000;
+	color: #ffffff;
 }
+
 .btn:hover {
-    color: #fff;
-    -webkit-box-shadow: 0px 0px 10px #000000;
-    -moz-box-shadow: 0px 0px 10px #000000;
-    box-shadow: 0px 0px 10px #000000;
+	color: #fff;
+	-webkit-box-shadow: 0px 0px 10px #000000;
+	-moz-box-shadow: 0px 0px 10px #000000;
+	box-shadow: 0px 0px 10px #000000;
 }
+
 .btn-primary {
-    background-color: #666666;
-        border-color: #a94442
+	background-color: #666666;
+	border-color: #a94442
 }
+
 .btn-primary:hover {
-    color: #fff;
-    background-color: #454545;
-    border-color: #FFFFFF
+	color: #fff;
+	background-color: #454545;
+	border-color: #FFFFFF
 }
+
 .btn-primary:active {
-    color: #fff;
-    background-color: #949494;
-    border-color: #8b8b8b;
+	color: #fff;
+	background-color: #949494;
+	border-color: #8b8b8b;
 }
+
 .btn-primary:active:hover {
-    color: #fff;
-    background-color: #949494;
-    border-color: #8b8b8b;
+	color: #fff;
+	background-color: #949494;
+	border-color: #8b8b8b;
 }
 
 .btn-success {
-    background-color: #006901;
+	background-color: #006901;
 }
+
 .btn-success {
-    color: #fff;
-    background-color: #006901;
-    border-color: #006901;
+	color: #fff;
+	background-color: #006901;
+	border-color: #006901;
 }
+
 .btn-success:hover {
-    color: #fff;
-    background-color: #009901;
-    border-color: #009901;
+	color: #fff;
+	background-color: #009901;
+	border-color: #009901;
 }
+
 .btn-danger {
-  color: #fff;
-    background-color: #b40808;
-    border-color: #b40808;
+	color: #fff;
+	background-color: #b40808;
+	border-color: #b40808;
 }
+
 .btn-danger:hover {
-    color: #fff;
-    background-color: #f20000;
-    border-color: #f20000;
+	color: #fff;
+	background-color: #f20000;
+	border-color: #f20000;
 }
+
 .btn-warning {
-    color: #fff;
-    background-color: #d1c200;
-    border-color: #d1c200;
+	color: #fff;
+	background-color: #d1c200;
+	border-color: #d1c200;
 }
+
 .btn-warning:hover {
-    color: #fff;
-    background-color: #d1d200;
-    border-color: #d1d200;
+	color: #fff;
+	background-color: #d1d200;
+	border-color: #d1d200;
 }
+
 .personality-types-container-scroller {
-  max-height: 120px;
+	max-height: 120px;
 }
+
 .label-default {
-  background-color: #ffffff;
-  color: #000000;
-  font-size: 1.25em;
+	background-color: #ffffff;
+	color: #000000;
+	font-size: 1.25em;
 }
 
-.findout{
-  text-align: center;
-}
-.img-circle{
-  border-color: black;
-  border-width: 8px;
-  border-style: solid;
-}
-.blackcontainer{
-  background-color: #000000;
-  color: white;
-  padding: 20px;
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-.blackcontainer h2{
-  color: white;
+.findout {
+	text-align: center;
 }
 
-.redcontainer{
-  background-color: #c3c3c3;
-  color: black;
-  padding: 20px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+.img-circle {
+	border-color: black;
+	border-width: 8px;
+	border-style: solid;
 }
-.whitecontainer{
-  background-color: #FFFFFF;
-  padding: 20px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+
+.blackcontainer {
+	background-color: #000000;
+	color: white;
+	padding: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
 }
-.gradientcontainer{
-  background-image:  linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
+
+.blackcontainer h2 {
+	color: white;
+}
+
+.redcontainer {
+	background-color: #c3c3c3;
+	color: black;
+	padding: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.whitecontainer {
+	background-color: #FFFFFF;
+	padding: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.gradientcontainer {
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%,
+		rgba(255, 0, 0, 1) 100%);
 }
 
 .well {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 20px;
-    background-color: #e3e3e3;
-    border: 10px solid #b7b7b7;
-    border-style: solid;
-    /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05); */
-    /* box-shadow: inset 0 1px 1px rgba(0,0,0,.05); */
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #e3e3e3;
+	border: 10px solid #b7b7b7;
+	border-style: solid;
 }
-.companyheader{
-  font-size: 0.8em;
+
+.companyheader {
+	font-size: 1.2em;
 }
-.personalityhead{
-  margin-top: 100px;
+
+.personalityhead {
+	margin-top: 100px;
 }

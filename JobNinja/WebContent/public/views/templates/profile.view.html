@@ -1,65 +1,72 @@
 <header ng-include="'public/partials/nav.html'"></header>
 <div class="wrapper">
-
-<div class="container">
-<h1 class="hvy">Profile</h1>
-	<div class="text-center">
-		<h3>Your personality keywords and list of potential employers.</h3>
-	</div>
-</div>
-<div class="container-fluid blackcontainer">
-<div class="container">
-	<div class="text-center">
-	<h1>My Personality</h1>
-	<div ng-show="user.tookTest" class="row text-center">
-		<h4><span ng-repeat="word in user.words" class="">{{word.value}} // </span></h4>
-		<!-- <div ng-repeat="word in user.words" class=""><h4>{{word.value}}</h4> </div> -->
-		<!-- WORDS WILL GO HERE... idk what this will be like yet -->
-	</div>
-	<div class="row">
-		<a class="btn btn-primary" href="#/test">
-			<span ng-show="!user.tookTest">Take Test</span>
-			<span ng-show="user.tookTest">View Results</span>
-		</a>
-	</div>
-</div>
-</div>
-</div>
-
-<div class="container-fluid redcontainer">
 	<div class="container">
-		<div class="col-md-6 col-md-offset-3">
+		<h1 class="hvy">Profile</h1>
+		<div class="text-center">
+			<h3>Your personality keywords and list of potential employers.</h3>
+		</div>
+	</div>
+	<div class="container-fluid blackcontainer">
+		<div class="container">
 			<div class="text-center">
-				<h1>My Companies</h1>
-			</div>
-
-			<hr>
-			<div class="row companyheader">
-				<div class="col-xs-2"><strong>Rating</strong></div>
-				<div class="col-xs-6"><strong>Company Name</strong></div>
-				<div class="col-xs-4"><strong>Edit/Delete</strong></div>
-			</div>
-			<hr>
-			<div class="row padtb" ng-repeat="c in companies | orderBy:['!rating', '-rating']" data="c">
-
-
-				<div class="col-xs-2"><span ng-show="c.rating">{{(c.rating)| number:0}}%</span></div>
-
-
-				<div class="col-xs-6">{{c.companyname}}</div>
-				<div class="col-xs-4">
-					<button class="btn btn-xs" ng-click="view(c)" ng-show="user.tookTest"><i class="fa fa-search" aria-hidden="true"></i></button>
-					<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+				<h1>My Personality</h1>
+				<div ng-show="user.tookTest" class="row text-center">
+					<h4>
+						<span ng-repeat="word in user.words" class="">{{word.value}}
+							// </span>
+					</h4>
+				</div>
+				<div class="row">
+					<a class="btn btn-primary" href="#/test"> <span
+						ng-show="!user.tookTest">Take Test</span> <span
+						ng-show="user.tookTest">View Results</span>
+					</a>
 				</div>
 			</div>
-			<div class="row padtb text-center">
-				<button class="btn btn-primary" add-company-button
-				addcompany="addCompany">Add Company</button>
+		</div>
+	</div>
+	<div class="container-fluid redcontainer">
+		<div class="container">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="text-center">
+					<h1>My Companies</h1>
+				</div>
+				<hr>
+				<div class="row companyheader">
+					<div class="col-xs-2">
+						<strong>Rating</strong>
+					</div>
+					<div class="col-xs-6">
+						<strong>Company Name</strong>
+					</div>
+					<div class="col-xs-4">
+						<strong>Edit/Delete</strong>
+					</div>
+				</div>
+				<hr>
+				<div class="row padtb"
+					ng-repeat="c in companies | orderBy:['!rating', '-rating']"
+					data="c">
+					<div class="col-xs-2">
+						<span ng-show="c.rating"><p>{{(c.rating)| number:0}}%</p></span>
+					</div>
+					<div class="col-xs-6"> <p>{{c.companyname}}</p></div>
+					<div class="col-xs-4">
+						<button class="btn btn-xs" ng-click="view(c)"
+							ng-show="user.tookTest">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+						<button class="btn btn-danger btn-xs" ng-click="deleteCompany(c)">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="row padtb text-center">
+					<button class="btn btn-primary" add-company-button
+						addcompany="addCompany">Add Company</button>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-</div>
-
 <footer ng-include="'public/partials/footer.html'"></footer>

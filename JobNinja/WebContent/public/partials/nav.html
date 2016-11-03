@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="loginController">
+<nav class="navbar navbar-default navbar-fixed-top"
+	ng-controller="loginController">
 	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -12,8 +12,6 @@
 			<a class="navbar-logo" href="#/"><img
 				src="public/img/ninjalogo.png" alt="logo" /></a> </a>
 		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="navbar-collapse collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
@@ -21,39 +19,37 @@
 							class="logo-job">JOB</span> <span class="logo-ninja">Ninja</span></span></a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-
-				<li ng-show="!isLoggedIn()"><a href="#/register"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</a></li>
-				<li ng-show="isLoggedIn()"><a href="#/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-				<!-- <li><a href="#/login" ng-show="!isLoggedIn()">Login</a></li> -->
-				<li ng-show="isLoggedIn()"><a href="#/" ng-click='logout()'><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
-				<li class="dropdown" ng-show="!isLoggedIn()"><a href="" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"><i class="fa fa-sign-in" aria-hidden="true"></i> Login<span class="caret"></span></a>
+				<li ng-show="!isLoggedIn()"><a href="#/register"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</a></li>
+				<li ng-show="isLoggedIn()"><a href="#/profile"><i
+						class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+				<li ng-show="isLoggedIn()"><a href="#/" ng-click='logout()'><i
+						class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+				<li class="dropdown" ng-show="!isLoggedIn()"><a href=""
+					class="dropdown-toggle" data-toggle="dropdown" role="button"
+					aria-haspopup="true" aria-expanded="false"><i
+						class="fa fa-sign-in" aria-hidden="true"></i> Login<span
+						class="caret"></span></a>
 					<div class="dropdown-menu">
 						<form name="loginForm" class="loginForm">
 							<div class="form-group">
-								<label for="usernamelogin">Username</label>
-								<input type='text' class="form-control" placeholder='username' ng-model="username" id="usernamelogin"></input>
+								<label for="usernamelogin">Username</label> <input type='text'
+									class="form-control" placeholder='username' ng-model="username"
+									id="usernamelogin"></input>
 							</div>
 							<div class="form-group">
-        						<label for="passwordlogin">Password</label>
-        						<input type="password" class="form-control" id="passwordlogin" placeholder="Password" ng-model="password">
-			                </div>
-                            <div class="error">
-                                <div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
-                            </div>
-							<button class="btn btn-default" ng-click='login(username, password)'>Submit</button>
+								<label for="passwordlogin">Password</label> <input
+									type="password" class="form-control" id="passwordlogin"
+									placeholder="Password" ng-model="password">
+							</div>
+							<div class="error">
+								<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+							</div>
+							<button class="btn btn-default"
+								ng-click='login(username, password)'>Submit</button>
 						</form>
 					</div></li>
 			</ul>
-			<!-- <form class="navbar-form navbar-left">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	        <button type="submit" class="btn btn-default">Submit</button>
-	      </form> -->
 		</div>
-		<!-- /.navbar-collapse -->
 	</div>
-	<!-- /.container-fluid -->
 </nav>
