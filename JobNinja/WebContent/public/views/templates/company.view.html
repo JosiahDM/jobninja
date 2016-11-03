@@ -1,14 +1,15 @@
 <header ng-include="'public/partials/nav.html'"></header>
-<div class = "container">
-<h1 class="hvy">{{company.companyname}}</h1>
-</div>
-	<div ng-show="company.rating" class = "container-fluid blackcontainer">
+<div class="wrapper">
+	<div class="container">
+		<h1 class="hvy">{{company.companyname}}</h1>
+	</div>
+	<div ng-show="company.rating" class="container-fluid blackcontainer">
 
 		<div class="text-center">
 
-			<div ng-show="company.rating >= 0" class= "col-sm-12">
+			<div ng-show="company.rating >= 0" class="col-sm-12">
 
-				<div class = "text-center">
+				<div class="text-center">
 
 					<h1 class="percent">{{(company.rating)| number:0}}%</h1>
 
@@ -18,75 +19,76 @@
 
 		</div>
 
-</div>
-<div class="container-fluid redcontainer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="text-center">
-					<button ng-model="show" class="btn btn-primary" ng-click="inputButton()">Add Data</button>
+	</div>
+	<div class="container-fluid redcontainer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="text-center">
+						<button ng-model="show" class="btn btn-primary"
+							ng-click="inputButton()">Add Data</button>
 
-					<button class="btn btn-primary" ng-click="clearWords(company)">Clear Words</button>
-					<span ng-show="show">
-						<input type="text" class"from-control" ng-model="url" placeholder="Enter Content URL">
-						<button class="btn btn-primary" ng-click="submitCompanyUrl(url)">Submit</button>
-					</span>
+						<button class="btn btn-primary" ng-click="clearWords(company)">Clear
+							Words</button>
+						<span ng-show="show"> <input type="text"
+							class"from-control" ng-model="url"
+							placeholder="Enter Content URL">
+							<button class="btn btn-primary" ng-click="submitCompanyUrl(url)">Submit</button>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
-</div>
 
 
 
-
-<div class="container">
-<!-- Modal -->
-
+	<div class="container">
+		<!-- Modal -->
 
 
 
 
 
-<div class="row" ng-show="company.rating >= 0">
 
-	<div class= "col-sm-12">
-		<div class="text-center">
-			<h3>Based on these words...</h3>
+		<div class="row" ng-show="company.rating >= 0">
+
+			<div class="col-sm-12">
+				<div class="text-center">
+					<h3>Based on these words...</h3>
+				</div>
+
+				<p>
+					<span ng-repeat="word in company.words"> {{word.value}} // </span>
+
+				</p>
+			</div>
+
 		</div>
-
-		<p>
-            <span ng-repeat="word in company.words">
-			{{word.value}} //
-            </span>
-
-		</p>
 	</div>
-
-</div>
 </div>
 <footer ng-include="'public/partials/footer.html'"></footer>
 
 
-<div class="modal fade in" aria-hidden="false"  style="display: block;" ng-show="flip">
-            <div class="modal-dialog">
-                <div class="modal-content">
-									<div class="modal-header">
+<div class="modal fade in" aria-hidden="false" style="display: block;"
+	ng-show="flip">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
 
-						        <h4 class="modal-title" id="myModalLabel">Please wait...</h4>
-						      </div>
-									<div class="text-center">
-										<h1 class="hvy">HIYYAAAAA!</h1>
-										<h1>OUR NINJAS</h1>
-										<div class="ninja jump-se"></div>
-										<h1>ARE WORKING!</h1>
-										<h4>
-											We are calculating your compatability with this company.
-										</h4>
+				<h4 class="modal-title" id="myModalLabel">Please wait...</h4>
+			</div>
+			<div class="text-center">
+				<h1 class="hvy">HIYYAAAAA!</h1>
+				<h1>OUR NINJAS</h1>
+				<div class="ninja jump-se"></div>
+				<h1>ARE WORKING!</h1>
+				<h4>We are calculating your compatability with this company.</h4>
 
 
-									</div>
-                </div>
-            </div>
-        </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,8 +1,7 @@
 html {
   height: 100%;
   box-sizing: border-box;
-  background-color: black;
-  background-image: linear-gradient(135deg, rgba(255,0,0,1) 0%,rgba(0,0,0,1) 35%,rgba(0,0,0,1) 70%,rgba(255,0,0,1) 100%);
+  background-color: #FFFFFF;
 }
 html, body {
   width: 100%;
@@ -35,13 +34,16 @@ body {
 
 
 .business-header {
-    height: 600px;
-    background: url('http://localhost:8080/JobNinja/public/img/jobninja.JPG') center center no-repeat scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    background-position-y: 0;
+  /* max-height: 900px; */
+  min-height: 600px;
+  background: url(../../img/jobninja.JPG) center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  margin-top: 10p;
+  background-position-y: 0;
+    background-attachment: fixed;
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
@@ -72,6 +74,7 @@ h6{}
 
 .tagline {
     text-shadow: 0 0 10px #000;
+      font-family: 'Nothing You Could Do', cursive;
     color: #fff;
     text-align: center;
     padding-top: 30%;
@@ -107,6 +110,9 @@ h6{}
   background-color: #efefef;
   text-align: center;
   background-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(255,0,0,1) 100%);
+}
+.footer a{
+  color: white;
 }
 .footp {
   color: #ffffff;
@@ -174,10 +180,12 @@ label {
 }
 
 .assessment {
-      position: relative;
-      padding-bottom: 30%;
-      margin-bottom: -30%;
-
+    position: relative;
+    margin-bottom: -150px;
+}
+a:focus, a:hover {
+    color: inherit;
+    text-decoration: none;
 }
 
 .padtb {
@@ -316,6 +324,6 @@ label {
 .companyheader{
   font-size: 0.8em;
 }
-.gap{
-  margin: 30%;
+.personalityhead{
+  padding-top: 100px;
 }
