@@ -18,19 +18,28 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 					<div class="text-center">
-						<button ng-model="show" class="btn btn-primary"
+						<button ng-model="show" class="btn btn-primary "
 							ng-click="inputButton()">Add Data</button>
-						<button class="btn btn-primary" ng-click="clearWords(company)">Clear
+						<button class="btn btn-primary " ng-click="clearWords(company)">Clear
 							Words</button>
-						<span ng-show="show"> <input type="text"
-							class"from-control" ng-model="url"
-							placeholder="Enter Content URL">
-							<button class="btn btn-primary" ng-click="submitCompanyUrl(url)">Submit</button>
-						</span>
+						<div ng-show="show">
+							<br>
+							<input type="text" class="form-control" ng-model="url" placeholder="Enter Content URL">
+							<br>
+							<button class="btn btn-primary " ng-click="submitCompanyUrl(url)">Submit</button>
+						</div>
 					</div>
 				</div>
 				<div class="col-xs-12" ng-show="error">
 					<div class="alert alert-danger" role="alert">{{error}}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-center">
+							<br>
+							<p><i>We reccommend using job posts, company career pages, or about pages.</i></p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
