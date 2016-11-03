@@ -16,7 +16,8 @@ app.controller('registrationController', function($scope, registrationService, $
             if (user) {
                 user.testId = testId;
                 registrationService.editUser(user);
-                $location.path('/test');
+                console.log(user.testId);
+                $location.path('/profile');
             }
         });
     }
