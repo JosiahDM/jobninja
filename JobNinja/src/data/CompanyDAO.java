@@ -91,12 +91,8 @@ public class CompanyDAO {
 		User u = em.find(User.class, userId);
 		WordComparer wc = new WordComparer(u.getWords(), c.getWords());
 		Double rating = wc.getSimilarityValue();
-		System.out.println("IN MATCHRATING COMPANYDAO");
-		System.out.println(rating);
 		c.setRating(rating == -1 ? null : rating);
-		System.out.println(c.getRating());
 		em.persist(c);
-		System.out.println(c.getRating());
 		em.flush();
 		return c;
 	}

@@ -46,15 +46,10 @@ public class WordComparer {
 		double result = -1.0;
 		String line = "-1.0";
 		
-		System.out.println(userConverted);
 		if (userConverted == null || userConverted.equals("")) {
 			return result;
 		} else {
 			try {
-				System.out.println(
-						"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-				System.out.println(userConverted);
-				System.out.println(companyConverted);
 				ProcessBuilder pb = new ProcessBuilder("python", "wordparse.py", userConverted, companyConverted);
 				Process p = pb.start();
 

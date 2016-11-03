@@ -74,7 +74,6 @@ public class UserDAO {
 		u.addCompany(company);
 		em.persist(u);
 		em.flush();
-		System.out.println(u.getCompaniesIds());
 		return company;
 	}
 
