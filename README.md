@@ -12,3 +12,7 @@ Java, Spring REST, MySQL, AngularJS, HTML5/CSS3, Python, NLTK
 ## API's
 * https://www.traitify.com/
 * https://www.meaningcloud.com/
+
+## Future Goals
+* There is always room to refactor code, making it more concise and modular.
+* With user feedback we could use a supervised learning model to more accuratly predict satisfaction with a company.
