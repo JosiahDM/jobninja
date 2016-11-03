@@ -35,8 +35,11 @@
 							placeholder="Enter Content URL">
 							<button class="btn btn-primary" ng-click="submitCompanyUrl(url)">Submit</button>
 						</span>
-                        {{error}}
+
 					</div>
+				</div>
+				<div class="col-xs-12" ng-show="error">
+					<div class="alert alert-danger" role="alert">{{error}}</div>
 				</div>
 			</div>
 		</div>
