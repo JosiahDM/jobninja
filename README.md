@@ -10,5 +10,5 @@ http://www.nicklang.io:8080/JobNinja/
 Java, Spring REST, MySQL, AngularJS, HTML5/CSS3, Python, NLTK
 
 ## API's
-*https://www.traitify.com/
-*https://www.meaningcloud.com/
+* https://www.traitify.com/
+* https://www.meaningcloud.com/
