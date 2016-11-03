@@ -6,6 +6,7 @@ JobNinja matches users to companies based off of complementary personalities. Us
 ## This project can be found running at:
 * http://www.nicklang.io:8080/JobNinja/
 * http://josiahmoye.com:8080/JobNinja/
+* http://stevenadams.info:8080/JobNinja/
 
 ## Technologies
 Java, Spring REST, MySQL, AngularJS, HTML5/CSS3, Python, NLTK
