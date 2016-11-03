@@ -49,8 +49,6 @@ public class CompanyController {
 		Set<String> uniqueWords = new TreeSet<String>(Arrays.asList(words));
 		
 		Company c = companyDAO.updateWords(id, uniqueWords);
-		System.out.println(c.getCompanyid());
-		System.out.println(c.getWords().size());
 		return c;
 	}
 	
@@ -61,7 +59,6 @@ public class CompanyController {
 
 		try {
 			updateCompany = mapper.readValue(companyJSON, Company.class);
-			System.out.println(updateCompany);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,7 +74,6 @@ public class CompanyController {
 	@RequestMapping(path="company/{id}/rating/{userId}", method=RequestMethod.GET)
 	public Company getMatchRating(@PathVariable int id, @PathVariable int userId, HttpServletResponse res) {
 		Company c = companyDAO.matchRating(id, userId);
-		System.out.println(c.getRating());
 		if (c.getRating() == null) {
 			
 			try {
