@@ -17,4 +17,4 @@ Java, Spring REST, MySQL, AngularJS, HTML5/CSS3, Python, NLTK
 
 ## Future Goals
 * There is always room to refactor code, making it more concise and modular.
-* With user feedback we could use a supervised learning model to more accuratly predict satisfaction with a company.
+* With user feedback we could use a supervised learning model to more accurately predict satisfaction with a company.
