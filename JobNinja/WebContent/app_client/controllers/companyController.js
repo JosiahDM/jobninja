@@ -76,8 +76,6 @@ app.controller('companyController', function($scope, $location, companyService, 
     	})
         .catch(function(response) {
             if (response.data.error) {
-                console.log("IN CATCH 84");
-                console.log(response);
                 $scope.error = response.data.error;
             }
             $scope.flip = false;
