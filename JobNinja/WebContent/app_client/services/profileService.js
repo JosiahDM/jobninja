@@ -31,10 +31,8 @@ app.factory('profileService', function($http, authenticationService) {
     	 return service.getUser()
     	 .then(function(response) {
     		 testId = response.data.testId;
-    		 console.log("in response:" + testId);
     	 })
     	 .then(function(response){
-    		 console.log("in next then:" + testId);
     		 return $http({
     		 	method : 'GET',
     		 	url : 'https://api.traitify.com/v1/assessments/' + testId + '?data=types',
@@ -46,9 +44,9 @@ app.factory('profileService', function($http, authenticationService) {
     	 });
     }
 
+    // Update users keywords that were pulled from the personality test
     service.postUserWords = function(words){
     	var user = authenticationService.currentUser();
-    	console.log(words + " " + user);
 
     	return $http({
             method : 'POST',
@@ -59,13 +57,10 @@ app.factory('profileService', function($http, authenticationService) {
             },
             data : JSON.stringify(words)
         });
-
     }
 
     service.addCompany = function(companyObj) {
         var user = authenticationService.currentUser();
-        console.log("ADD COMPANY PROFILE SERVICE:::");
-        console.log(user);
         if (user) {
             return $http({
                 method : 'POST',
@@ -91,7 +86,6 @@ app.factory('profileService', function($http, authenticationService) {
             });
         }
     };
-
 
     return service;
 

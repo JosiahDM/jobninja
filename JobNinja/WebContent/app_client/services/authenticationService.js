@@ -14,7 +14,6 @@ app.factory('authenticationService', function($window, $http){
     // Contact the server, authenticate user credentials
     var login = function(username, password) {
         var user = { username : username, password : password};
-        console.log(user);
       return $http({
                 method : 'POST',
                 url : 'api/auth/login',
@@ -24,7 +23,6 @@ app.factory('authenticationService', function($window, $http){
                 data : JSON.stringify(user)
               })
               .then(function(response){
-                  console.log("saving token...");
                   saveToken(response.data.jwt);
               });
     };
@@ -34,7 +32,7 @@ app.factory('authenticationService', function($window, $http){
       $window.localStorage.removeItem('user-token');
     };
 
-    // Check that a user's login is valid (present AND not expired)
+    // Check that a user's in is valid (present AND not expired)
     var isLoggedIn = function() {
       var token = getToken();
 

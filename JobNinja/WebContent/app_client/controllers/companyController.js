@@ -5,13 +5,11 @@ app.controller('companyController', function($scope, $location, companyService, 
     $scope.company = null;
     $scope.flip = false;
 
+    // Load the correct company based on the url parameter passed in
     if ($routeParams) {
         companyService.getCompany($routeParams.id)
         .then(function(response){
-            console.log("IN THE COMPANY CONTROLLER");
-
             $scope.company = companyService.getCurrentCompany();
-            console.log($scope.company);
         })
         .catch(function() {
             $location.path("/");
@@ -21,10 +19,16 @@ app.controller('companyController', function($scope, $location, companyService, 
     $scope.error = null;
     $scope.show = false;
 
+    // Toggles view of add data button
     $scope.inputButton = function() {
         $scope.show = true;
     };
 
+    /* submits the URL to be sent as a meaningcloud request, which pulls out the
+     * primary keywords within the page at that URL. Then loads all of those
+     * keywords into the company database and displays them in view.
+     * Finally, calls the getMatchRating to request the rating calculation.
+     */
     $scope.submitCompanyUrl = function(url) {
         $scope.flip = true;
         companyService.meaningCloudRequest(url)
@@ -36,10 +40,7 @@ app.controller('companyController', function($scope, $location, companyService, 
             }
             $scope.updateCompanyWords(concepts, $scope.company)
             .then(function(response) {
-            	console.log(response);
-            	console.log($scope.company);
             	var user = authenticationService.currentUser();
-            	console.log($scope.company.companyid + " " + user.id);
             	$scope.getMatchRating($scope.company.companyid, user.id);
             })
             .catch(function(response) {
@@ -52,6 +53,7 @@ app.controller('companyController', function($scope, $location, companyService, 
         });
     };
 
+    // Sends array of words to be added to company entity in database
     $scope.updateCompanyWords = function(wordArray, company) {
         return companyService.addWordsToCompany(wordArray, company)
         .then(function(response){
@@ -62,11 +64,13 @@ app.controller('companyController', function($scope, $location, companyService, 
         });
     };
 
+    /* Company words and user words should all be loaded at this point, so
+    *  send request to calculate the match rating of those keywords.
+    */
     $scope.getMatchRating = function(companyId, userId){
         $scope.flip = true;
     	return companyService.getMatchRating(companyId, userId)
     	.then(function(response){
-    		console.log(response.data)
             $scope.flip = false;
     		$scope.company = response.data;
     	})
@@ -78,14 +82,7 @@ app.controller('companyController', function($scope, $location, companyService, 
         });
     }
 
-    // $scope.recalc = function(companyId, userId) {
-    //     $scope.getMatchRating(companyId, userId)
-    //     .then(function(response) {
-    //         console.log("ASDF");
-    //
-    //     });
-    // };
-
+    // Delete all words associated with company
     $scope.clearWords = function(companyObj) {
         companyService.clearWords(companyObj)
         .then(function(response) {

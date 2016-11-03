@@ -2,8 +2,7 @@ var app = angular.module('ninja', ['ngRoute'])
     .config(function($routeProvider){
         $routeProvider
             .when('/',{
-                templateUrl : '/JobNinja/public/views/templates/home.view.html',
-                controller : 'homeController'
+                templateUrl : '/JobNinja/public/views/templates/home.view.html'
             })
             .when('/login',{
                 templateUrl : '/JobNinja/public/views/templates/login.view.html',

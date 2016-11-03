@@ -5,7 +5,7 @@ app.controller('registrationController', function($scope, registrationService, $
     var testId = "";
 
     // Runs query for new testId, sets the local value, then
-    // updates the current user with the new test id and redirects to test page.
+    // updates the current user with the new test id and redirects to profile page.
     $scope.newTestId = function() {
         registrationService.createAssessment()
         .then(function(response){

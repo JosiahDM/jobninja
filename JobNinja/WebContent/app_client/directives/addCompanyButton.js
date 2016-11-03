@@ -1,16 +1,10 @@
 // Directive for button that allows user to add companies in the profile view.
-// Template for the inputArea will need to be changed/styled. - Josiah
 
 var app = angular.module('ninja');
 
 app.directive('addCompanyButton', function($compile, profileService) {
     return {
         restrict: 'A',
-        // template:
-        //     `<td ng-class="styleTask(data.completed)">{{data.task}}</td>
-        //     <td><input ng-model="data.completed" type="checkbox" ng-change="completedChanged(data)" ></td>
-        //     <td><a ng-click="editClicked(data)">Edit</a></td>
-        //     <td><a ng-click="remove(data)">Delete</a></td>`,
         scope : {
             addcompany : "&"
         },
@@ -19,8 +13,6 @@ app.directive('addCompanyButton', function($compile, profileService) {
 
             // Click event for this button. On click, add the following to DOM
             $element.bind('click', function(){
-                console.log("IN directive");
-
                 var $inputArea =
                                 `
                                 <div class ="row">
@@ -56,21 +48,6 @@ app.directive('addCompanyButton', function($compile, profileService) {
                     $scope.data = null;
                 }
             };
-
-            //
-            //
-            // $scope.styleTask = function(complete) {
-            //     return complete ? 'complete' : 'incomplete';
-            // };
-            //
-            // $scope.completedChanged = function(data) {
-            //     todoService.editTodo(data);
-            // };
-            //
-
-            //
-
-            //
 
         }
     }

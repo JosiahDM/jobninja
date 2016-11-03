@@ -5,7 +5,7 @@ app.factory('companyService', function($http, authenticationService) {
     var service = {};
     var currentCompany = null;
 
-    // This needs updated to a server side request.
+    // Submits the URL to the run a server side request to Meaningcloud
     service.meaningCloudRequest = function(urlIn) {
         var user = authenticationService.currentUser();
         if (user) {
@@ -35,6 +35,10 @@ app.factory('companyService', function($http, authenticationService) {
   	    });
     }
 
+    /* Gets a company by id. Validates that the current user is actually
+     * the user of this company, so someone can't just navigate to any company
+     * page via the URL.
+     */
     service.getCompany = function(id) {
         var user = authenticationService.currentUser();
         return service.getCompanyRaw(id)
@@ -61,6 +65,8 @@ app.factory('companyService', function($http, authenticationService) {
         currentCompany = company;
     };
 
+    // Needed this to pull company data prior to validating that it is a valid
+    // company for the user
     service.getCompanyRaw = function(companyId) {
         return $http({
             method : 'GET',

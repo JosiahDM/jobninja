@@ -9,7 +9,6 @@ app.controller('profileController', function($scope, $location, profileService) 
     $scope.loadData = function() {
         profileService.getUser()
             .then(function(response) {
-                console.log(response.data);
                 $scope.user = response.data
                 $scope.companies = response.data.companies;
             }).catch(function(e) {
@@ -19,9 +18,8 @@ app.controller('profileController', function($scope, $location, profileService) 
 
     $scope.loadData();
 
-    // Button to bring up company info for viewing/adding more data
+    // Button to bring up an invididual company view
     $scope.view = function(company) {
-        console.log("VIEWING");
         $location.path('/company/'+company.companyid);
     };
 
@@ -36,13 +34,10 @@ app.controller('profileController', function($scope, $location, profileService) 
             });
     };
 
-    // Button to view an "Add Company" display
-    // Currently no data in response.
+    // Adds company to user profile.
     $scope.addCompany = function(companyObj) {
         profileService.addCompany(companyObj)
             .then(function(response) {
-                console.log("PROFILE CONTROLLER:");
-                console.log(response);
                 $scope.companies.push(response.data);
             });
     };
