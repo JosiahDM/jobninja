@@ -16,7 +16,7 @@ app.controller('registrationController', function($scope, registrationService, $
             if (user) {
                 user.testId = testId;
                 registrationService.editUser(user);
-                $location.path('/test');
+                $location.path('/profile');
             }
         });
     }
@@ -26,15 +26,15 @@ app.controller('registrationController', function($scope, registrationService, $
 	$scope.submit = function(username, password){
 	    registrationService.createUser(username, password)
         .then(function(response) {
-            authenticationService.login(username, password);
-        })
-	    .then(function(response){
-	    	$scope.newTestId();
-	    })
-        .catch(function(response) {
-            console.log(response);
-            $scope.regError = response.data.error;
+            authenticationService.login(username, password)
+            .then(function(response){
+    	    	$scope.newTestId();
+    	    })
+            .catch(function(response) {
+                $scope.regError = response.data.error;
+            });
         });
+
 	}
 
 });
