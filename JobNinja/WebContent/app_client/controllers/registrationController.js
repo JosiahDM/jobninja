@@ -31,8 +31,11 @@ app.controller('registrationController', function($scope, registrationService, $
     	    	$scope.newTestId();
     	    })
             .catch(function(response) {
-                $scope.regError = response.data.error;
+                $scope.regError = "There was an error in generating the new assessment.";
             });
+        })
+        .catch(function(response) {
+            $scope.regError = response.data.error
         });
 
 	}
