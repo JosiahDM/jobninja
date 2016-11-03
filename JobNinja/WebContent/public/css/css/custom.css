@@ -35,7 +35,7 @@ body {
 
 .business-header {
   /* max-height: 900px; */
-  min-height: 600px;
+  min-height: 660px;
   background: url(../../img/jobninja.JPG) center center no-repeat scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -44,6 +44,7 @@ body {
   margin-top: 10p;
   background-position-y: 0;
     background-attachment: fixed;
+
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */
