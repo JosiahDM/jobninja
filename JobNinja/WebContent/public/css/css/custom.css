@@ -58,6 +58,7 @@ h2 {
 
 h3 {
 	font-family: 'Nothing You Could Do', cursive;
+  font-size: 2em;
 }
 
 h4 {
@@ -129,7 +130,7 @@ p {
 
 .footp {
 	color: #ffffff;
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 0px;
 	margin: 0px;
 }
@@ -378,4 +379,7 @@ a:focus, a:hover {
 
 .personalityhead {
 	margin-top: 100px;
+}
+.container.words {
+    margin-bottom: 20px;
 }
